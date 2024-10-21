@@ -1,7 +1,7 @@
 module IF_TB()
     reg [31:0] branchAddress;
     reg branchTaken, hazard;
-    wire pc, inst;
+    wire [31:0] pc, inst;
 
     reg clk=0, rst=0;
 
