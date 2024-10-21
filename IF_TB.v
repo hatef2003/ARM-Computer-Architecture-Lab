@@ -1,21 +1,23 @@
 module IF_TB()
+    reg [31:0] branchAddress;
+    reg branchTaken, hazard;
+    wire pc, inst;
 
-    reg [31:0] Branch_Address;
-    reg Branch_Taken, Hazard;
-    wire PC, Inst;
-
-    reg clk=0;
+    reg clk=0, rst=0;
 
     initial begin
         clk=~clk;
         #5;
     end
 
-    IF Instruction_Fetch(clk, Branch_Taken, Hazard, PC, Inst);
+    IF instructionFetch(clk, rst, branchTaken, hazard, branchAddress, pc, inst);
     initial begin
-        Branch_Address=32'd0;
-        Branch_Taken=0;
-        Hazard=0;
+        rst=1;
+        branchAddress=32'd0;
+        branchTaken=0;
+        hazard=0;
+        #10
+        rst=0;
         #500;
     end
 
