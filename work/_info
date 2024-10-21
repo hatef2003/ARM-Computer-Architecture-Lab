@@ -1,6 +1,7 @@
 m255
 K4
 z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
 13
 !s112 1.1
 !i10d 8192
@@ -8,3 +9,27 @@ z2
 !i10f 100
 cModel Technology
 dC:/Users/Hot-f/Desktop/CAD_HW2_810100149_810100196/New folder
+vProgramCounter
+!s110 1729492078
+!i10b 1
+!s100 7IOY<6G5ED98^o9;Bo6HV2
+!s11b Dg1SIo80bB@j0V0VzS_@n1
+I^7XPNQ2T9`YdJ381]92D43
+VDg1SIo80bB@j0V0VzS_@n1
+dD:/CA-lab/ARM-Computer-Architecture-Lab
+w1729492078
+8D:/CA-lab/ARM-Computer-Architecture-Lab/ProgramCounter.v
+FD:/CA-lab/ARM-Computer-Architecture-Lab/ProgramCounter.v
+!i122 0
+L0 1 11
+OV;L;2020.1;71
+r1
+!s85 0
+31
+!s108 1729492078.000000
+!s107 D:/CA-lab/ARM-Computer-Architecture-Lab/ProgramCounter.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/CA-lab/ARM-Computer-Architecture-Lab/ProgramCounter.v|
+!i113 1
+o-work work
+tCvgOpt 0
+n@program@counter
