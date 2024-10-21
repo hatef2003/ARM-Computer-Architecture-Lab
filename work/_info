@@ -10,7 +10,7 @@ z2
 cModel Technology
 dC:/Users/Hot-f/Desktop/CAD_HW2_810100149_810100196/New folder
 vIF
-Z0 !s110 1729494658
+Z0 !s110 1729495317
 !i10b 1
 !s100 _b5Zh[ezCmKhm4BR:;n@V3
 Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
@@ -20,19 +20,43 @@ Z3 dD:/CA-lab/ARM-Computer-Architecture-Lab
 Z4 w1729494657
 Z5 8D:/CA-lab/ARM-Computer-Architecture-Lab/IF.v
 Z6 FD:/CA-lab/ARM-Computer-Architecture-Lab/IF.v
-!i122 19
+!i122 24
 L0 1 8
 Z7 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z8 !s108 1729494658.000000
+Z8 !s108 1729495317.000000
 Z9 !s107 D:/CA-lab/ARM-Computer-Architecture-Lab/IF.v|
 Z10 !s90 -reportprogress|300|-work|work|-stats=none|D:/CA-lab/ARM-Computer-Architecture-Lab/IF.v|
 !i113 1
 Z11 o-work work
 Z12 tCvgOpt 0
 n@i@f
+vIF_Reg
+R0
+!i10b 1
+!s100 40cZASA:[i;?Kf5RCl@nP1
+R1
+I6mc;<6DPYDFIeIAlcf3i>3
+R2
+R3
+w1729495204
+8D:/CA-lab/ARM-Computer-Architecture-Lab/IF_Reg.v
+FD:/CA-lab/ARM-Computer-Architecture-Lab/IF_Reg.v
+!i122 26
+L0 1 9
+R7
+r1
+!s85 0
+31
+R8
+!s107 D:/CA-lab/ARM-Computer-Architecture-Lab/IF_Reg.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/CA-lab/ARM-Computer-Architecture-Lab/IF_Reg.v|
+!i113 1
+R11
+R12
+n@i@f_@reg
 vIF_TB
 R0
 !i10b 1
@@ -44,7 +68,7 @@ R3
 w1729494610
 8D:/CA-lab/ARM-Computer-Architecture-Lab/IF_TB.v
 FD:/CA-lab/ARM-Computer-Architecture-Lab/IF_TB.v
-!i122 18
+!i122 23
 L0 1 24
 R7
 r1
@@ -72,7 +96,7 @@ R3
 R4
 R5
 R6
-!i122 19
+!i122 24
 L0 8 0
 R7
 31
@@ -94,7 +118,7 @@ R3
 w1729494644
 8D:/CA-lab/ARM-Computer-Architecture-Lab/Mux2to1.v
 FD:/CA-lab/ARM-Computer-Architecture-Lab/Mux2to1.v
-!i122 20
+!i122 25
 L0 1 6
 R7
 r1
@@ -118,13 +142,13 @@ R3
 w1729494524
 8D:/CA-lab/ARM-Computer-Architecture-Lab/ProgramCounter.v
 FD:/CA-lab/ARM-Computer-Architecture-Lab/ProgramCounter.v
-!i122 16
+!i122 21
 L0 1 3
 R7
 r1
 !s85 0
 31
-R8
+!s108 1729495316.000000
 !s107 D:/CA-lab/ARM-Computer-Architecture-Lab/ProgramCounter.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/CA-lab/ARM-Computer-Architecture-Lab/ProgramCounter.v|
 !i113 1
@@ -142,7 +166,7 @@ R3
 w1729493334
 8D:/CA-lab/ARM-Computer-Architecture-Lab/Register.v
 FD:/CA-lab/ARM-Computer-Architecture-Lab/Register.v
-!i122 17
+!i122 22
 L0 1 12
 R7
 r1

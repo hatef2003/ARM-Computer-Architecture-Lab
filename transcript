@@ -36,3 +36,10 @@
 # Compile of IF.v was successful with warnings.
 # Compile of Mux2to1.v was successful.
 # 5 compiles, 0 failed with no errors.
+# Compile of ProgramCounter.v was successful.
+# Compile of Register.v was successful.
+# Compile of IF_TB.v was successful.
+# Compile of IF.v was successful with warnings.
+# Compile of Mux2to1.v was successful.
+# Compile of IF_Reg.v was successful.
+# 6 compiles, 0 failed with no errors.
