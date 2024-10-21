@@ -5,10 +5,8 @@ module IF_TB();
 
     reg clk=0, rst=0;
 
-    initial begin
-        clk=~clk;
-        #5;
-    end
+
+    always #5 clk=~clk;
 
     IF instructionFetch(clk, rst, branchTaken, hazard, branchAddress, pc, inst);
     initial begin
@@ -19,6 +17,7 @@ module IF_TB();
         #10
         rst=0;
         #500;
+        $stop;
     end
 
 endmodule

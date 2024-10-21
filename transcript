@@ -43,3 +43,194 @@
 # Compile of Mux2to1.v was successful.
 # Compile of IF_Reg.v was successful.
 # 6 compiles, 0 failed with no errors.
+# Compile of ProgramCounter.v was successful.
+# Compile of Register.v was successful.
+# Compile of IF_TB.v was successful.
+# Compile of IF.v failed with 1 errors.
+# Compile of Mux2to1.v was successful.
+# Compile of IF_Reg.v was successful.
+# 6 compiles, 1 failed with 1 error.
+# Compile of ProgramCounter.v was successful.
+# Compile of Register.v was successful.
+# Compile of IF_TB.v was successful.
+# Compile of IF.v was successful.
+# Compile of Mux2to1.v was successful.
+# Compile of IF_Reg.v was successful.
+# 6 compiles, 0 failed with no errors.
+# Compile of ProgramCounter.v was successful.
+# Compile of Register.v was successful.
+# Compile of IF_TB.v was successful.
+# Compile of IF.v was successful.
+# Compile of Mux2to1.v was successful.
+# Compile of IF_Reg.v was successful.
+# 6 compiles, 0 failed with no errors.
+vsim -gui work.IF_TB
+# vsim -gui work.IF_TB 
+# Start time: 11:06:02 on Oct 21,2024
+# Loading work.IF_TB
+# Loading work.IF
+# Loading work.Mux2to1
+# Loading work.register
+# Loading work.ProgramCounter
+# ** Error: (vsim-3033) Instantiation of 'InstructionMemory' failed. The design unit was not found.
+#    Time: 0 ps  Iteration: 0  Instance: /IF_TB/instructionFetch File: D:/CA-lab/ARM-Computer-Architecture-Lab/IF.v Line: 10
+#         Searched libraries:
+#             D:/CA-lab/ARM-Computer-Architecture-Lab/work
+# Error loading design
+# End time: 11:06:02 on Oct 21,2024, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 22
+# Compile of ProgramCounter.v was successful.
+# Compile of Register.v was successful.
+# Compile of IF_TB.v was successful.
+# Compile of IF.v was successful.
+# Compile of Mux2to1.v was successful.
+# Compile of IF_Reg.v was successful.
+# Compile of InstructionMemory.v failed with 1 errors.
+# 7 compiles, 1 failed with 1 error.
+# Compile of ProgramCounter.v was successful.
+# Compile of Register.v was successful.
+# Compile of IF_TB.v was successful.
+# Compile of IF.v was successful.
+# Compile of Mux2to1.v was successful.
+# Compile of IF_Reg.v was successful.
+# Compile of InstructionMemory.v was successful.
+# 7 compiles, 0 failed with no errors.
+# Compile of ProgramCounter.v was successful.
+# Compile of Register.v was successful.
+# Compile of IF_TB.v was successful.
+# Compile of IF.v was successful.
+# Compile of Mux2to1.v was successful.
+# Compile of IF_Reg.v was successful.
+# Compile of InstructionMemory.v was successful.
+# 7 compiles, 0 failed with no errors.
+vsim -gui work.IF_TB
+# vsim -gui work.IF_TB 
+# Start time: 11:07:11 on Oct 21,2024
+# Loading work.IF_TB
+# Loading work.IF
+# Loading work.Mux2to1
+# Loading work.register
+# Loading work.ProgramCounter
+# Loading work.InstructionMemory
+# ** Warning: (vsim-3015) [PCDPC] - Port size (32) does not match connection size (1) for port 'in1'. The port definition is at: D:/CA-lab/ARM-Computer-Architecture-Lab/Mux2to1.v(3).
+#    Time: 0 ps  Iteration: 0  Instance: /IF_TB/instructionFetch/mux File: D:/CA-lab/ARM-Computer-Architecture-Lab/IF.v Line: 7
+# Compile of ProgramCounter.v was successful.
+# Compile of Register.v was successful.
+# Compile of IF_TB.v was successful.
+# Compile of IF.v was successful.
+# Compile of Mux2to1.v was successful.
+# Compile of IF_Reg.v was successful.
+# Compile of InstructionMemory.v was successful.
+# 7 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.IF_TB
+# Loading work.IF
+# Loading work.Mux2to1
+# Loading work.register
+# Loading work.ProgramCounter
+# Loading work.InstructionMemory
+add wave -position insertpoint  \
+sim:/IF_TB/branchAddress \
+sim:/IF_TB/branchTaken \
+sim:/IF_TB/hazard \
+sim:/IF_TB/pc \
+sim:/IF_TB/inst \
+sim:/IF_TB/clk \
+sim:/IF_TB/rst
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+add wave -position insertpoint sim:/IF_TB/instructionFetch/instructionMem/mem
+restart -f
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+add wave -position insertpoint sim:/IF_TB/instructionFetch/instructionMem/memAddr
+add wave -position insertpoint sim:/IF_TB/instructionFetch/pc/rst
+add wave -position insertpoint /IF_TB/instructionFetch/pc/loaden
+add wave -position insertpoint sim:/IF_TB/instructionFetch/pc/pin
+add wave -position insertpoint sim:/IF_TB/instructionFetch/pc/pout
+restart -f
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# Compile of ProgramCounter.v was successful.
+# Compile of Register.v was successful.
+# Compile of IF_TB.v was successful.
+# Compile of IF.v was successful.
+# Compile of Mux2to1.v was successful.
+# Compile of IF_Reg.v was successful.
+# Compile of InstructionMemory.v was successful.
+# 7 compiles, 0 failed with no errors.
+# Compile of ProgramCounter.v was successful.
+# Compile of Register.v was successful.
+# Compile of IF_TB.v was successful.
+# Compile of IF.v was successful.
+# Compile of Mux2to1.v was successful.
+# Compile of IF_Reg.v was successful.
+# Compile of InstructionMemory.v was successful.
+# 7 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.IF_TB
+# Loading work.IF
+# Loading work.Mux2to1
+# Loading work.register
+# Loading work.ProgramCounter
+# Loading work.InstructionMemory
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# ** Note: $stop    : D:/CA-lab/ARM-Computer-Architecture-Lab/IF_TB.v(20)
+#    Time: 510 ps  Iteration: 0  Instance: /IF_TB
+# Break in Module IF_TB at D:/CA-lab/ARM-Computer-Architecture-Lab/IF_TB.v line 20
+# Compile of ProgramCounter.v was successful.
+# Compile of Register.v was successful.
+# Compile of IF_TB.v was successful.
+# Compile of IF.v was successful.
+# Compile of Mux2to1.v was successful.
+# Compile of IF_Reg.v was successful.
+# Compile of InstructionMemory.v was successful.
+# 7 compiles, 0 failed with no errors.
+restart -f
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# Loading work.IF_TB
+# Loading work.IF
+# Loading work.Mux2to1
+# Loading work.register
+# Loading work.ProgramCounter
+# Loading work.InstructionMemory
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# ** Note: $stop    : D:/CA-lab/ARM-Computer-Architecture-Lab/IF_TB.v(20)
+#    Time: 510 ps  Iteration: 0  Instance: /IF_TB
+# Break in Module IF_TB at D:/CA-lab/ARM-Computer-Architecture-Lab/IF_TB.v line 20
+# Compile of ProgramCounter.v was successful.
+# Compile of Register.v was successful.
+# Compile of IF_TB.v was successful.
+# Compile of IF.v was successful.
+# Compile of Mux2to1.v was successful.
+# Compile of IF_Reg.v was successful.
+# Compile of InstructionMemory.v was successful.
+# 7 compiles, 0 failed with no errors.
+restart -f
+# Loading work.IF_TB
+# Loading work.IF
+# Loading work.Mux2to1
+# Loading work.register
+# Loading work.ProgramCounter
+# Loading work.InstructionMemory
+run -all
+# GetModuleFileName: The specified module could not be found.
+# 
+# 
+# ** Note: $stop    : D:/CA-lab/ARM-Computer-Architecture-Lab/IF_TB.v(20)
+#    Time: 510 ps  Iteration: 0  Instance: /IF_TB
+# Break in Module IF_TB at D:/CA-lab/ARM-Computer-Architecture-Lab/IF_TB.v line 20
