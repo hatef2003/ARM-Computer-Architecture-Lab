@@ -1,4 +1,4 @@
-module IF_TB()
+module IF_TB();
     reg [31:0] branchAddress;
     reg branchTaken, hazard;
     wire [31:0] pc, inst;

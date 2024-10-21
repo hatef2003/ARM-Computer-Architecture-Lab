@@ -9,29 +9,127 @@ z2
 !i10f 100
 cModel Technology
 dC:/Users/Hot-f/Desktop/CAD_HW2_810100149_810100196/New folder
-vProgramCounter
-Z0 !s110 1729493484
+vIF
+Z0 !s110 1729494658
 !i10b 1
-!s100 8oUN7oQ^8OWkX?S<?YcfV0
+!s100 _b5Zh[ezCmKhm4BR:;n@V3
 Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
-IMzo]QD9LLm]nMzn]JFK_f0
+ISc:@zHkKOok5aQ6hX7A0E2
 Z2 VDg1SIo80bB@j0V0VzS_@n1
 Z3 dD:/CA-lab/ARM-Computer-Architecture-Lab
-w1729492834
-8D:/CA-lab/ARM-Computer-Architecture-Lab/ProgramCounter.v
-FD:/CA-lab/ARM-Computer-Architecture-Lab/ProgramCounter.v
-!i122 5
-L0 1 3
-Z4 OV;L;2020.1;71
+Z4 w1729494657
+Z5 8D:/CA-lab/ARM-Computer-Architecture-Lab/IF.v
+Z6 FD:/CA-lab/ARM-Computer-Architecture-Lab/IF.v
+!i122 19
+L0 1 8
+Z7 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z5 !s108 1729493484.000000
+Z8 !s108 1729494658.000000
+Z9 !s107 D:/CA-lab/ARM-Computer-Architecture-Lab/IF.v|
+Z10 !s90 -reportprogress|300|-work|work|-stats=none|D:/CA-lab/ARM-Computer-Architecture-Lab/IF.v|
+!i113 1
+Z11 o-work work
+Z12 tCvgOpt 0
+n@i@f
+vIF_TB
+R0
+!i10b 1
+!s100 0T4D2ODehzoX2klb[W=340
+R1
+IiRiJh`bN=8JJdXE7dH1z70
+R2
+R3
+w1729494610
+8D:/CA-lab/ARM-Computer-Architecture-Lab/IF_TB.v
+FD:/CA-lab/ARM-Computer-Architecture-Lab/IF_TB.v
+!i122 18
+L0 1 24
+R7
+r1
+!s85 0
+31
+R8
+!s107 D:/CA-lab/ARM-Computer-Architecture-Lab/IF_TB.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/CA-lab/ARM-Computer-Architecture-Lab/IF_TB.v|
+!i113 1
+R11
+R12
+n@i@f_@t@b
+XIF_v_unit
+DXx6 sv_std 3 std 0 22 VYECXdT12H8WgbUP_5Y6:3
+R0
+V^[^FX`j8Y[b2@zQH[=;=[1
+r1
+!s85 0
+!i10b 1
+!s100 QYE:COD;f:XhJndNgm9[X2
+I^[^FX`j8Y[b2@zQH[=;=[1
+!i103 1
+S1
+R3
+R4
+R5
+R6
+!i122 19
+L0 8 0
+R7
+31
+R8
+R9
+R10
+!i113 1
+R11
+R12
+n@i@f_v_unit
+vMux2to1
+R0
+!i10b 1
+!s100 gLhh4:cNZ;mkQgEWQh@AY3
+R1
+IPGE20L;jnnlY69kZE`5[D2
+R2
+R3
+w1729494644
+8D:/CA-lab/ARM-Computer-Architecture-Lab/Mux2to1.v
+FD:/CA-lab/ARM-Computer-Architecture-Lab/Mux2to1.v
+!i122 20
+L0 1 6
+R7
+r1
+!s85 0
+31
+R8
+!s107 D:/CA-lab/ARM-Computer-Architecture-Lab/Mux2to1.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/CA-lab/ARM-Computer-Architecture-Lab/Mux2to1.v|
+!i113 1
+R11
+R12
+n@mux2to1
+vProgramCounter
+R0
+!i10b 1
+!s100 8oUN7oQ^8OWkX?S<?YcfV0
+R1
+IMzo]QD9LLm]nMzn]JFK_f0
+R2
+R3
+w1729494524
+8D:/CA-lab/ARM-Computer-Architecture-Lab/ProgramCounter.v
+FD:/CA-lab/ARM-Computer-Architecture-Lab/ProgramCounter.v
+!i122 16
+L0 1 3
+R7
+r1
+!s85 0
+31
+R8
 !s107 D:/CA-lab/ARM-Computer-Architecture-Lab/ProgramCounter.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/CA-lab/ARM-Computer-Architecture-Lab/ProgramCounter.v|
 !i113 1
-Z6 o-work work
-Z7 tCvgOpt 0
+R11
+R12
 n@program@counter
 vregister
 R0
@@ -44,15 +142,15 @@ R3
 w1729493334
 8D:/CA-lab/ARM-Computer-Architecture-Lab/Register.v
 FD:/CA-lab/ARM-Computer-Architecture-Lab/Register.v
-!i122 6
+!i122 17
 L0 1 12
-R4
+R7
 r1
 !s85 0
 31
-R5
+R8
 !s107 D:/CA-lab/ARM-Computer-Architecture-Lab/Register.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/CA-lab/ARM-Computer-Architecture-Lab/Register.v|
 !i113 1
-R6
-R7
+R11
+R12
