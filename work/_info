@@ -10,26 +10,49 @@ z2
 cModel Technology
 dC:/Users/Hot-f/Desktop/CAD_HW2_810100149_810100196/New folder
 vProgramCounter
-!s110 1729492078
+Z0 !s110 1729493484
 !i10b 1
-!s100 7IOY<6G5ED98^o9;Bo6HV2
-!s11b Dg1SIo80bB@j0V0VzS_@n1
-I^7XPNQ2T9`YdJ381]92D43
-VDg1SIo80bB@j0V0VzS_@n1
-dD:/CA-lab/ARM-Computer-Architecture-Lab
-w1729492078
+!s100 8oUN7oQ^8OWkX?S<?YcfV0
+Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IMzo]QD9LLm]nMzn]JFK_f0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+Z3 dD:/CA-lab/ARM-Computer-Architecture-Lab
+w1729492834
 8D:/CA-lab/ARM-Computer-Architecture-Lab/ProgramCounter.v
 FD:/CA-lab/ARM-Computer-Architecture-Lab/ProgramCounter.v
-!i122 0
-L0 1 11
-OV;L;2020.1;71
+!i122 5
+L0 1 3
+Z4 OV;L;2020.1;71
 r1
 !s85 0
 31
-!s108 1729492078.000000
+Z5 !s108 1729493484.000000
 !s107 D:/CA-lab/ARM-Computer-Architecture-Lab/ProgramCounter.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/CA-lab/ARM-Computer-Architecture-Lab/ProgramCounter.v|
 !i113 1
-o-work work
-tCvgOpt 0
+Z6 o-work work
+Z7 tCvgOpt 0
 n@program@counter
+vregister
+R0
+!i10b 1
+!s100 PdZCg732U]Dd@`E2JT_BR3
+R1
+IfI3[elF4:WcFCP<Xf9=B<2
+R2
+R3
+w1729493334
+8D:/CA-lab/ARM-Computer-Architecture-Lab/Register.v
+FD:/CA-lab/ARM-Computer-Architecture-Lab/Register.v
+!i122 6
+L0 1 12
+R4
+r1
+!s85 0
+31
+R5
+!s107 D:/CA-lab/ARM-Computer-Architecture-Lab/Register.v|
+!s90 -reportprogress|300|-work|work|-stats=none|D:/CA-lab/ARM-Computer-Architecture-Lab/Register.v|
+!i113 1
+R6
+R7
