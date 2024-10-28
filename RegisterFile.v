@@ -4,7 +4,7 @@ module RegisterFile(input clk, rst,
                     input writeBackEn,
                     output[31:0] reg1, reg2);
 
-    reg[15:0] registers[31:0];
+    reg[14:0] registers[31:0];
     
     always @(negedge clk , posedge rst) 
     begin
