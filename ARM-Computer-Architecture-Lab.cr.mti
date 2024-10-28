@@ -5,6 +5,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	register
 
+} {} {}} D:/CA-lab/ARM-Computer-Architecture-Lab/Legtb.v {1 {vlog -work work -stats=none D:/CA-lab/ARM-Computer-Architecture-Lab/Legtb.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module Legtb
+
+Top level modules:
+	Legtb
+
 } {} {}} D:/CA-lab/ARM-Computer-Architecture-Lab/IF.v {1 {vlog -work work -stats=none D:/CA-lab/ARM-Computer-Architecture-Lab/IF.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module IF
@@ -12,12 +19,26 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	IF
 
-} {} {}} D:/CA-lab/ARM-Computer-Architecture-Lab/IF_TB.v {1 {vlog -work work -stats=none D:/CA-lab/ARM-Computer-Architecture-Lab/IF_TB.v
+} {} {}} D:/CA-lab/ARM-Computer-Architecture-Lab/InstructionMemory.v {1 {vlog -work work -stats=none D:/CA-lab/ARM-Computer-Architecture-Lab/InstructionMemory.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module IF_TB
+-- Compiling module InstructionMemory
 
 Top level modules:
-	IF_TB
+	InstructionMemory
+
+} {} {}} D:/CA-lab/ARM-Computer-Architecture-Lab/LEG.v {1 {vlog -work work -stats=none D:/CA-lab/ARM-Computer-Architecture-Lab/LEG.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module LEG
+
+Top level modules:
+	LEG
+
+} {} {}} D:/CA-lab/ARM-Computer-Architecture-Lab/ProgramCounter.v {1 {vlog -work work -stats=none D:/CA-lab/ARM-Computer-Architecture-Lab/ProgramCounter.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module ProgramCounter
+
+Top level modules:
+	ProgramCounter
 
 } {} {}} D:/CA-lab/ARM-Computer-Architecture-Lab/Mux2to1.v {1 {vlog -work work -stats=none D:/CA-lab/ARM-Computer-Architecture-Lab/Mux2to1.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -26,18 +47,11 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	Mux2to1
 
-} {} {}} D:/CA-lab/ARM-Computer-Architecture-Lab/IF_Reg.v {1 {vlog -work work -stats=none D:/CA-lab/ARM-Computer-Architecture-Lab/IF_Reg.v
+} {} {}} D:/CA-lab/ARM-Computer-Architecture-Lab/IF_TB.v {1 {vlog -work work -stats=none D:/CA-lab/ARM-Computer-Architecture-Lab/IF_TB.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module IF_Reg
+-- Compiling module IF_TB
 
 Top level modules:
-	IF_Reg
-
-} {} {}} D:/CA-lab/ARM-Computer-Architecture-Lab/ProgramCounter.v {1 {vlog -work work -stats=none D:/CA-lab/ARM-Computer-Architecture-Lab/ProgramCounter.v
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module ProgramCounter
-
-Top level modules:
-	ProgramCounter
+	IF_TB
 
 } {} {}}

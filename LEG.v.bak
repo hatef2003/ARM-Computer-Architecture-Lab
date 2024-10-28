@@ -1,0 +1,9 @@
+module LEG   (input clk, rst);
+    wire branchTaken, freeze;
+    wire [31:0] branchAddress,IFPC, instruction, IDPC, IDInstruction , EPC, EI , MEMPC,MEMI, WBPC,WBI;
+    IF instructionFetch( clk , rst, branchTaken, freeze, branchAddress, IFPC, instruction);
+    IF_Reg ifReg(clk, rst, freeze, flush, IFPC, instruction, IDPC, IDInstruction);
+    IF_Reg idReg(clk, rst, freeze, flush, IDPC, IDInstruction, EPC, EI);
+    IF_Reg eReg(clk, rst, freeze, flush, EPC, EI, MEMPC, MEMI);
+    IF_Reg mReg(clk, rst, freeze, flush, MEMPC, MEMI, WBPC, WBI);
+endmodule
