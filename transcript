@@ -295,3 +295,39 @@ run -all
 quit -sim
 # End time: 14:34:13 on Oct 28,2024, Elapsed time: 0:24:40
 # Errors: 0, Warnings: 1
+# Compile of ProgramCounter.v was successful.
+# Compile of Register.v was successful.
+# Compile of IF_TB.v was successful.
+# Compile of IF.v was successful.
+# Compile of Mux2to1.v was successful.
+# Compile of IF_Reg.v was successful.
+# Compile of InstructionMemory.v was successful.
+# Compile of LEG.v was successful.
+# Compile of Legtb.v was successful.
+# Compile of RegisterFile.v failed with 1 errors.
+# Compile of CondtionCheck.v was successful with warnings.
+# 11 compiles, 2 failed with 1 error.
+# Compile of ProgramCounter.v was successful.
+# Compile of Register.v was successful.
+# Compile of IF_TB.v was successful.
+# Compile of IF.v was successful.
+# Compile of Mux2to1.v was successful.
+# Compile of IF_Reg.v was successful.
+# Compile of InstructionMemory.v was successful.
+# Compile of LEG.v was successful.
+# Compile of Legtb.v was successful.
+# Compile of RegisterFile.v failed with 2 errors.
+# Compile of CondtionCheck.v was successful with warnings.
+# 11 compiles, 2 failed with 2 errors.
+# Compile of ProgramCounter.v was successful.
+# Compile of Register.v was successful.
+# Compile of IF_TB.v was successful.
+# Compile of IF.v was successful.
+# Compile of Mux2to1.v was successful.
+# Compile of IF_Reg.v was successful.
+# Compile of InstructionMemory.v was successful.
+# Compile of LEG.v was successful.
+# Compile of Legtb.v was successful.
+# Compile of RegisterFile.v was successful.
+# Compile of CondtionCheck.v was successful with warnings.
+# 11 compiles, 1 failed with no errors.

@@ -2,7 +2,7 @@ module RegisterFile(input clk, rst,
                     input[3:0] src1, src2, destWB,
                     input[31:0] resultWB,
                     input writeBackEn,
-                    output[31:0] reg1, reg2);
+                    output reg [31:0] reg1, reg2);
 
     reg[14:0] registers[31:0];
     
@@ -10,22 +10,22 @@ module RegisterFile(input clk, rst,
     begin
         if (rst)
         begin 
-            register[0] = 31'b0;
-            register[1] = 31'b0;
-            register[2] = 31'b0;
-            register[3] = 31'b0;
-            register[4] = 31'b0;
-            register[5] = 31'b0;
-            register[6] = 31'b0;
-            register[7] = 31'b0;
-            register[8] = 31'b0;
-            register[9] = 31'b0;
-            register[10] = 31'b0;
-            register[11] = 31'b0;
-            register[12] = 31'b0;
-            register[13] = 31'b0;
-            register[14] = 31'b0;
-            register[15] = 31'b0;
+            registers[0] = 31'b0;
+            registers[1] = 31'b0;
+            registers[2] = 31'b0;
+            registers[3] = 31'b0;
+            registers[4] = 31'b0;
+            registers[5] = 31'b0;
+            registers[6] = 31'b0;
+            registers[7] = 31'b0;
+            registers[8] = 31'b0;
+            registers[9] = 31'b0;
+            registers[10] = 31'b0;
+            registers[11] = 31'b0;
+            registers[12] = 31'b0;
+            registers[13] = 31'b0;
+            registers[14] = 31'b0;
+            registers[15] = 31'b0;
         end
         registers[destWB]<=resultWB;
     end
