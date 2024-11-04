@@ -1,4 +1,6 @@
 *.v.bak
 *.wlf
+*.mti
+*.mpf
 work/*
 transcript
