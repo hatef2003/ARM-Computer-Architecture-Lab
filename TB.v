@@ -4,7 +4,7 @@ module TB();
     wire [31:0] pc, inst;
     wire[23:0] signedIMM;
     wire[11:0] valGeneratorIMM;
-    wire[5:0] controlsignals
+    wire[9:0] controlsignals;
     wire imm ,COUT, ZOUT, VOUT, NOUT;
     wire [31:0] Rn, Rm;
 
@@ -27,8 +27,9 @@ module TB();
         hazard=0;
         #10
         rst=0;
-        #50;
-        C,V,Z,N=4'b1111;
+        #50
+        {C,V,Z,N}=4'b1111;
+        #100
         $stop;
     end
 
