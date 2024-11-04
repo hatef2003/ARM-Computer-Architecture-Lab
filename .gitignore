@@ -1,0 +1,4 @@
+*.v.bak
+*.wlf
+work/*
+transcript
