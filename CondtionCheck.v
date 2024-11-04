@@ -1,8 +1,8 @@
-module CondtionCheck(input[3:0] opcode, input z, c, n, v, output reg flag);
+module CondtionCheck(input[3:0] cond, input z, c, n, v, output reg flag);
     always@(*)
     begin
         flag = 1'b0;
-        case (opcode)
+        case (cond)
             4'd0000: 
             begin
                 if (z) 
