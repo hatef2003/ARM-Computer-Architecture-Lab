@@ -3,7 +3,7 @@
 module ControlUnit( input[3:0] OPCode,
                     input[[1:0]] Mode, 
                     input S,
-                    output [5:0] out);
+                    output [9:0] out);
 //  S, B, EXE_CMD,
 // MEM_W_EN, MEM_R_EN,
 // WB_EN
