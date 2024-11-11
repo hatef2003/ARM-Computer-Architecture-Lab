@@ -42,7 +42,7 @@ module ControlUnit( input[3:0] OPCode,
                 MEM_WB_EN=0;
                 MEM_R_EN=0;
                 WB_EN=1;
-                EXE_CMD=4'0100;//SUB
+                EXE_CMD=4'b0100;//SUB
                 SOUT=S;
                 B=0;
                 end

@@ -16,20 +16,23 @@ module TB();
 
     always #5 clk=~clk;
 
-    IF instructionFetch(clk, rst, branchTaken, hazard, branchAddress, pc, inst);
-    ID instructionDecode(clk, rst, C, V, Z, N, WB_WB_EN, pc, inst, WBValue, WBDest, 
+    // IF instructionFetch(clk, rst, branchTaken, hazard, branchAddress, pc, inst);
+    // ID instructionDecode(clk, rst, C, V, Z, N, WB_WB_EN, pc, inst, WBValue, WBDest, 
+    //                     Rn, Rm, imm, COUT, ZOUT, VOUT, NOUT, signedIMM, valGeneratorIMM, controlsignals);
+    IF instructionFetch(clk, rst, 1'd0, 1'b0, 32'd0, pc, inst);
+    ID instructionDecode(clk, rst, 1'd0, 1'd0, 1'd0, 1'd0, 1'd0, pc, inst, 31'd0, 4'd0, 
                         Rn, Rm, imm, COUT, ZOUT, VOUT, NOUT, signedIMM, valGeneratorIMM, controlsignals);
-
     initial begin
         rst=1;
-        branchAddress=32'd0;
-        branchTaken=0;
-        hazard=0;
+        // branchAddress=32'd0;
+        // branchTaken=0;
+        // hazard=0;
         #10
         rst=0;
-        #50
-        {C,V,Z,N}=4'b1111;
-        #100
+        #1000
+        // #50
+        // {C,V,Z,N}=4'b1111;
+        // #100
         $stop;
     end
 
