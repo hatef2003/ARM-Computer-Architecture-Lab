@@ -4,11 +4,11 @@ module ValGenerator(input Rm[31:0], input imm, memCommand, input [11:0] shiftOpr
     wire[3:0] rotate_imm;
     assign immed_8 = shiftOprand[7:0];
     assign rotate_imm = shiftOprand[11:8];
-        ALUVal2 = {{20{shiftOprand[11]}, shiftOprand}};
+
     always @(*)
     begin
     if (memCommand)
-        ALUVal2 = 
+        ALUVal2 = {{20{shiftOprand[11]}, shiftOprand}};
     else
         if(imm)
         begin
