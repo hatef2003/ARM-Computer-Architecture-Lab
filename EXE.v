@@ -19,7 +19,7 @@ module EXE(input clk, rest, MEM_R_EN, MEM_W_EN,
     assign memCommand=MEM_R_EN|MEM_W_EN;
 
     // adder
-    assign branchAddress=PC+{{8{signedIMM[23]}}, signedIMM} >> 2
+    assign branchAddress=PC+{{8{signedIMM[23]}}, signedIMM} >> 2;
 
     ALU alu(val1, val2_gen_out, EXE_CMD, aluCarryOut, ALURes, statusBits);
     ValGenerator val2generator(Rm, imm, memCommand, shiftOperand, val2_gen_out);
