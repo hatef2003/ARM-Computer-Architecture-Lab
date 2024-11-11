@@ -1,4 +1,4 @@
-module ValGenerator(input Rm[31:0], input imm, memCommand, input [11:0] shiftOprand , output reg [31:0] ALUVal2);
+module ValGenerator(input [31:0]Rm, input imm, memCommand, input [11:0] shiftOprand , output reg [31:0] ALUVal2);
     integer i;
     wire [7:0] immed_8;
     wire[3:0] rotate_imm;
@@ -8,7 +8,7 @@ module ValGenerator(input Rm[31:0], input imm, memCommand, input [11:0] shiftOpr
     always @(*)
     begin
     if (memCommand)
-        ALUVal2 = {{20{shiftOprand[11]}, shiftOprand}};
+        ALUVal2 = {{20{shiftOprand[11]}}, shiftOprand};
     else
         if(imm)
         begin
@@ -30,14 +30,17 @@ module ValGenerator(input Rm[31:0], input imm, memCommand, input [11:0] shiftOpr
             end
             2'b10:
             begin
-                 $signed(Rm) >>> shiftOprand[11:7];
+                ALUVal2 = $signed(Rm) >>> shiftOprand[11:7];
             end
             2'b11:
             begin
-                ALUVal2 = valRmIn;
-                    for (i = 0; i < shiftOprand[11:7]; i = i + 1) begin
-                        valOut = {valOut[0], valOut[31:1]};
+                ALUVal2 = Rm;
+                    for (i = 0; i < shiftOprand[11:7]; i = i + 1)
+                    begin
+                        ALUVal2 = {ALUVal2[0], ALUVal2[31:1]};
+                    end
             end
+            endcase
         end
     end
 endmodule
