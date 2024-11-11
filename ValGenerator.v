@@ -1,3 +1,3 @@
 module val2generator(input Rm[31:0], input imm, memCommand, input [10:0] shiftOprand , output [31:0] ALUVal2);
-
+    
 endmodule
