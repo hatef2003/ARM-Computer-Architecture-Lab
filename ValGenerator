@@ -1,0 +1,3 @@
+module val2generator(input Rm[31:0], input imm, input [10:0] shiftOprand);
+
+endmodule
