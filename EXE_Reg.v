@@ -1,12 +1,12 @@
 module (input clk, rst,
         input WB_EN, MEM_R_EN, MEM_W_EN,
         input[31:0] ALURes, valRm,
-        input[11:0] dest,
+        input[3:0] dest,
 
 
         output WB_EN_OUT, MEM_R_EN_OUT, MEM_W_EN_OUT,
         output[31:0] ALUResOut, valRmOut,
-        output[11:0] dest);
+        output[3:0] dest);
 
 
     register #(1) Reg1(clk, rst, 1,  WB_EN, WB_EN_OUT);
