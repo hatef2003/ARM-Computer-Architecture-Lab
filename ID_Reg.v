@@ -1,4 +1,4 @@
-module ID_Reg(input clk, rest,
+module ID_Reg(input clk, rst,
                 input WB_EN, MEM_R_EN, MEM_W_EN, 
                 input[3:0] EXE_CMD,
                 input B, S,

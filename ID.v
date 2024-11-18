@@ -5,10 +5,10 @@ module ID(input clk, rst, C, V, Z, N, WBWriteEnable ,
             output imm ,COUT, ZOUT, VOUT, NOUT, 
             output[23:0] signedIMM , 
             output[11:0] valGeneratorIMM, // 
-            output[9:0] controlsignals );
+            output[8:0] controlsignals );
 wire condtionChechOut;
 wire [3:0] src2 ; 
-wire [9:0] controlUnitOut;
+wire [8:0] controlUnitOut;
 RegisterFile registerFile(clk, rst, instruction[19:16],src2,WBDest, WBValue, WBWriteEnable, Rn, Rm);
 assign src2 = (controlUnitOut[2])? instruction[3:0] : instruction[15:12];
 //module ControlUnit( input[3:0] OPCode,
@@ -18,7 +18,7 @@ assign src2 = (controlUnitOut[2])? instruction[3:0] : instruction[15:12];
 ControlUnit controUnit(instruction[24:21], instruction[27:26], instruction[20],controlUnitOut);
 
 CondtionCheck conditionCheck(instruction[31:28] , Z, C, N, V , condtionChechOut);
-assign controlsignals = (condtionChechOut)? controlUnitOut : 10'b0;
+assign controlsignals = (condtionChechOut)? controlUnitOut : 9'b0;
 assign valGeneratorIMM = instruction[11:0];
 assign signedIMM = instruction[23:0];
 assign imm = instruction[25];
