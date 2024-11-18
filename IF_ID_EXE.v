@@ -20,17 +20,17 @@ IF_Reg intructionFetchRegister(clk,rst , freeze , flush , IF_PC , IF_instruction
 
 ID instructionDecode (clk, rst,C,V,Z,N, WBWriteEnable,PC_ID, instruction_ID, WBValue,
      WBDest, Rn, Rm , imm ,COUT, ZOUT, VOUT, NOUT,signedIMM, valGeneratorIMM , controlsignals );
-//out={SOUT, B, EXE_CMD,MEM_WB_EN, MEM_R_EN,WB_EN};
 wire [31:0] RnOut, RmOut ; 
 wire[23:0] signedIMMOut  ;
 wire[11:0] valGeneratorIMMOut  ;
 wire[8:0] controlsignalsOut; 
 wire [31:0] IF_PCOut , IF_instructionOut;
 wire [31:0] PC_IDOut , instruction_IDOut;
-wire immOut;
+wire immOut,CoutOut;
 wire [3:0] WBDestOut;
+//out={SOUT, B, EXE_CMD,MEM_WB_EN, MEM_R_EN,WB_EN};
 ID_Reg id_reg(clk, rst, controlsignals[0], controlsignals[1],controlsignals[2],controlsignals[6:3],controlsignals[7],controlsignals[8] , PC_ID ,Rn,Rm,imm,valGeneratorIMM,signedIMM,instruction_ID[15:12],
-         controlsignalsOut[0], controlsignalsOut[1],controlsignalsOut[2],controlsignalsOut[6:3],controlsignalsOut[7],controlsignalsOut[8] , PC_IDOut ,RnOut,RmOut,immOut,valGeneratorIMMOut,signedIMMOut,WBDestOut);   
+         controlsignalsOut[0], controlsignalsOut[1],controlsignalsOut[2],controlsignalsOut[6:3],controlsignalsOut[7],controlsignalsOut[8] , PC_IDOut ,RnOut,RmOut,immOut,valGeneratorIMMOut,signedIMMOut,WBDestOut,freeze,COUT,CoutOut);   
 EXE exe(clk, rst,
-        );
+        controlsignalsOut[1], controlsignalsOut[2], controlsignalsOut[6:3], PC_IDOut, RnOut, RmOut, immOut, valGeneratorIMMOut,signedIMMOut, );
 endmodule
