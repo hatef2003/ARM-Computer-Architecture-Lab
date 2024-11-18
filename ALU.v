@@ -7,7 +7,7 @@ module ALU(input[31:0] val1, val2,
     reg[32:0] extendedOut=33'd0;
     
     // TODO: check order 
-    assign {carry, out}=extendedOut;
+    assign {carryOut, out}=extendedOut;
 
     always @(*)
     begin
@@ -23,8 +23,6 @@ module ALU(input[31:0] val1, val2,
         4'b1000: extendedOut = val1 ^ val2;
         4'b0100: extendedOut = val1 - val2;
         4'b0110: extendedOut = val1 & val2;
-        4'b0010: extendedOut = val1 + val2;
-        4'b0010: extendedOut = val1 + val2;
         endcase
     end
 

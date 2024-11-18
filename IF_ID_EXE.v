@@ -1,11 +1,12 @@
 module IF_ID_EXE(input clk , rst , branchTaken, freeze, flush ,WBWriteEnable ,
-            input[31:0] branchAddress WBValue,  
+            input[31:0] branchAddress ,WBValue,  
             input[3:0] WBDest);
 
 
 
 
 wire C,V,Z,N ;
+assign C = 1;
 wire [31:0] Rn, Rm ; 
 wire imm ,COUT, ZOUT, VOUT, NOUT ;
 wire[23:0] signedIMM  ;
@@ -31,6 +32,9 @@ wire [3:0] WBDestOut;
 //out={SOUT, B, EXE_CMD,MEM_WB_EN, MEM_R_EN,WB_EN};
 ID_Reg id_reg(clk, rst, controlsignals[0], controlsignals[1],controlsignals[2],controlsignals[6:3],controlsignals[7],controlsignals[8] , PC_ID ,Rn,Rm,imm,valGeneratorIMM,signedIMM,instruction_ID[15:12],
          controlsignalsOut[0], controlsignalsOut[1],controlsignalsOut[2],controlsignalsOut[6:3],controlsignalsOut[7],controlsignalsOut[8] , PC_IDOut ,RnOut,RmOut,immOut,valGeneratorIMMOut,signedIMMOut,WBDestOut,freeze,COUT,CoutOut);   
+wire memREnOut, memWEnOut;
+wire[31:0] ALURes, valRmOut, branchAddressEXE;
+wire statusBits;
 EXE exe(clk, rst,
-        controlsignalsOut[1], controlsignalsOut[2], controlsignalsOut[6:3], PC_IDOut, RnOut, RmOut, immOut, valGeneratorIMMOut,signedIMMOut, );
+        controlsignalsOut[1], controlsignalsOut[2], controlsignalsOut[6:3], PC_IDOut, RnOut, RmOut, immOut, valGeneratorIMMOut,signedIMMOut,CoutOut, memREnOut, memWEnOut ,ALURes, valRmOut, branchAddressEXE,statusBits);
 endmodule

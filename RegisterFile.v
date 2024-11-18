@@ -10,22 +10,22 @@ module RegisterFile(input clk, rst,
     begin
         if (rst)
         begin 
-            registers[0] = 31'b0;
-            registers[1] = 31'b0;
-            registers[2] = 31'b0;
-            registers[3] = 31'b0;
-            registers[4] = 31'b0;
-            registers[5] = 31'b0;
-            registers[6] = 31'b0;
-            registers[7] = 31'b0;
-            registers[8] = 31'b0;
-            registers[9] = 31'b0;
-            registers[10] = 31'b0;
-            registers[11] = 31'b0;
-            registers[12] = 31'b0;
-            registers[13] = 31'b0;
-            registers[14] = 31'b0;
-            registers[15] = 31'b0;
+            registers[0] = 31'b1;
+            registers[1] = 31'b1;
+            registers[2] = 31'b1;
+            registers[3] = 31'b1;
+            registers[4] = 31'b1;
+            registers[5] = 31'b1;
+            registers[6] = 31'b1;
+            registers[7] = 31'b1;
+            registers[8] = 31'b1;
+            registers[9] = 31'b1;
+            registers[10] = 31'b1;
+            registers[11] = 31'b1;
+            registers[12] = 31'b1;
+            registers[13] = 31'b1;
+            registers[14] = 31'b1;
+            registers[15] = 31'b1;
         end
         registers[destWB]<=resultWB;
     end

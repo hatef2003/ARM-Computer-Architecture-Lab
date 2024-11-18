@@ -18,7 +18,7 @@ assign src2 = (controlUnitOut[2])? instruction[3:0] : instruction[15:12];
 ControlUnit controUnit(instruction[24:21], instruction[27:26], instruction[20],controlUnitOut);
 
 CondtionCheck conditionCheck(instruction[31:28] , Z, C, N, V , condtionChechOut);
-assign controlsignals = (condtionChechOut)? controlUnitOut : 9'b0;
+assign controlsignals = (~condtionChechOut)? controlUnitOut : 9'b0;
 assign valGeneratorIMM = instruction[11:0];
 assign signedIMM = instruction[23:0];
 assign imm = instruction[25];
