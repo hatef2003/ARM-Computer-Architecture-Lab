@@ -1,4 +1,4 @@
-module MEM_Reg( input clk, rst, freeze, flush,
+module MEM_Reg( input clk, rst, freeze,
                 input WB_EN, MEM_R_EN, MEM_W_EN,
                 input[31:0] DataMemoryOutput32Bit, 
                 input[3:0] dest,
