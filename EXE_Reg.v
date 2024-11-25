@@ -1,4 +1,4 @@
-module (input clk, rst,
+module EXE_Reg(input clk, rst,
         input WB_EN, MEM_R_EN, MEM_W_EN,
         input[31:0] ALURes, valRm,
         input[3:0] dest,
