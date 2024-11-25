@@ -1,6 +1,6 @@
 module IF_ID_EXE(input clk , rst , branchTaken, freeze, flush ,WBWriteEnable ,
             input[31:0] branchAddress ,WBValue,  
-            input[3:0] WBDest);
+            input[3:0] WBDest, output [31:0] ALURes );
 
 
 
@@ -32,9 +32,25 @@ wire [3:0] WBDestOut;
 //out={SOUT, B, EXE_CMD,MEM_WB_EN, MEM_R_EN,WB_EN};
 ID_Reg id_reg(clk, rst, controlsignals[0], controlsignals[1],controlsignals[2],controlsignals[6:3],controlsignals[7],controlsignals[8] , PC_ID ,Rn,Rm,imm,valGeneratorIMM,signedIMM,instruction_ID[15:12],
          controlsignalsOut[0], controlsignalsOut[1],controlsignalsOut[2],controlsignalsOut[6:3],controlsignalsOut[7],controlsignalsOut[8] , PC_IDOut ,RnOut,RmOut,immOut,valGeneratorIMMOut,signedIMMOut,WBDestOut,freeze,COUT,CoutOut);   
-wire memREnOut, memWEnOut;
-wire[31:0] ALURes, valRmOut, branchAddressEXE;
+wire memREnOut, memWEnOut, WEout;
+wire[31:0] valRmOut, branchAddressEXE;
 wire statusBits;
 EXE exe(clk, rst,
-        controlsignalsOut[1], controlsignalsOut[2], controlsignalsOut[6:3], PC_IDOut, RnOut, RmOut, immOut, valGeneratorIMMOut,signedIMMOut,CoutOut, memREnOut, memWEnOut ,ALURes, valRmOut, branchAddressEXE,statusBits);
+        controlsignalsOut[1], controlsignalsOut[2], controlsignalsOut[0] , controlsignalsOut[6:3], PC_IDOut, RnOut, RmOut, immOut, valGeneratorIMMOut,signedIMMOut,CoutOut, memREnOut, memWEnOut , WEout ,ALURes, valRmOut, branchAddressEXE,statusBits);
+// module EXE_Reg(input clk, rst,
+//         input WB_EN, MEM_R_EN, MEM_W_EN,
+//         input[31:0] ALURes, valRm,
+//         input[3:0] dest,
+
+
+//         output WB_EN_OUT, MEM_R_EN_OUT, MEM_W_EN_OUT,
+//         output[31:0] ALUResOut, valRmOut,
+//         output[3:0] dest);
+wire WB_EN_OUT, MEM_R_EN_OUT, MEM_W_EN_OUT;
+wire [31:0] ALUResOut, valRmOut;
+wire [3:0] dest;
+EXE_Reg exeReg (clk ,rst WEout , memREnOut , memWEnOut , ALU_Res , WBDestOut, WB_EN_OUT, MEM_R_EN_OUT, MEM_W_EN_OUT,
+        ALUResOut , valRmOut , dest);
+        wire [31:0] memOut;
+DataMemory dataMemory (clk , rst ,MEM_W_EN_OUT , MEM_R_EN_OUT , ALUResOut,valRmOut, memOut);
 endmodule

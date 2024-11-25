@@ -1,4 +1,4 @@
-module EXE(input clk, rest, MEM_R_EN, MEM_W_EN, 
+module EXE(input clk, rest, MEM_R_EN, MEM_W_EN, WB_EN,
             input[3:0] EXE_CMD,
             input [31:0] PC,
             input [31:0] val1, Rm, 
@@ -6,7 +6,7 @@ module EXE(input clk, rest, MEM_R_EN, MEM_W_EN,
             input[11:0] shiftOperand, 
             input[23:0] signedIMM, 
             input aluCarryOut,
-            output memREnOut, memWEnOut,
+            output memREnOut, memWEnOut, WEout,
             output[31:0] ALURes, valRmOut, branchAddress,
             output statusBits);
 
@@ -15,6 +15,7 @@ module EXE(input clk, rest, MEM_R_EN, MEM_W_EN,
 
     assign memREnOut=MEM_R_EN;
     assign memWEnOut=MEM_W_EN;
+    assign WEout = WB_EN;
     assign valRmOut=Rm;
     assign memCommand=MEM_R_EN|MEM_W_EN;
 
