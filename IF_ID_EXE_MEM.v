@@ -52,5 +52,14 @@ wire [3:0] dest;
 EXE_Reg exeReg (clk ,rst WEout , memREnOut , memWEnOut , ALU_Res , WBDestOut, WB_EN_OUT, MEM_R_EN_OUT, MEM_W_EN_OUT,
         ALUResOut , valRmOut , dest);
         wire [31:0] memOut;
+
+wire MEMReg_WB_EN_OUT; 
+wire MEMReg_MEM_R_EN_OUT; 
+wire [31:0] MEMReg_ALUResOut; 
+wire [31:0] MEMReg_DataMemoryOutput32Bit_Out; 
+wire [3:0] MEMReg_destOut;
+
 DataMemory dataMemory (clk , rst ,MEM_W_EN_OUT , MEM_R_EN_OUT , ALUResOut,valRmOut, memOut);
+MEM_Reg memReg(clk, rst, 0, WB_EN_OUT, MEM_R_EN_OUT, ALUResOut, memOut, dest,
+                WB_EN_OUT, MEM_R_EN_OUT, ALUResOut, DataMemoryOutput32Bit_Out, destOut);
 endmodule
