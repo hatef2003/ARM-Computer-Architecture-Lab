@@ -5,6 +5,10 @@ module IF_ID_EXE(input clk , rst , branchTaken, freeze, flush ,WBWriteEnable ,
 wire C,V,Z,N ;
 wire Gen_C,Gen_V,Gen_Z,Gen_N;
 assign C = 1;
+wire [31:0] WB_Value;
+wire [3:0] WB_Dest;
+wire WB_WB_EN; 
+
 wire [31:0] Rn, Rm ; 
 wire imm ,COUT, ZOUT, VOUT, NOUT ;
 wire[23:0] signedIMM  ;
@@ -37,24 +41,22 @@ assign Gen_C = statusBits;
 //  assign out={SOUT, B, EXE_CMD,MEM_WB_EN, MEM_R_EN,WB_EN}; DONOT DELETE THIS
 StatusReg StReg(clk, rst,controlsignalsOut[8] ,{Gen_C , Gen_V, Gen_Z, Gen_N},{C,V,Z,N});
 wire WB_EN_OUT, MEM_R_EN_OUT, MEM_W_EN_OUT;
-wire [31:0] ALUResOut, valRmOut;
+wire [31:0] ALUResOut, valRmOut2;
 wire [3:0] dest;
-EXE_Reg exeReg (clk ,rst WEout , memREnOut , memWEnOut , ALU_Res , WBDestOut, WB_EN_OUT, MEM_R_EN_OUT, MEM_W_EN_OUT,
-        ALUResOut , valRmOut , dest);
+EXE_Reg exeReg (clk ,rst, WEout , memREnOut , memWEnOut , ALU_Res , WBDestOut, WB_EN_OUT, MEM_R_EN_OUT, MEM_W_EN_OUT,
+        ALUResOut , valRmOut2 , dest);
         wire [31:0] memOut;
 
-wire WB_WB_EN; 
 wire MEMReg_MEM_R_EN_OUT; 
 wire [31:0] MEMReg_ALUResOut; 
 wire [31:0] MEMReg_DataMemoryOutput32Bit_Out; 
-wire [3:0] WB_Dest;
 
 DataMemory dataMemory (clk , rst ,MEM_W_EN_OUT , MEM_R_EN_OUT , ALUResOut,valRmOut, memOut);
 MEM_Reg memReg(clk, rst, 0, WB_EN_OUT, MEM_R_EN_OUT, ALUResOut, memOut, dest,
                  WB_WB_EN,  MEMReg_MEM_R_EN_OUT,  MEMReg_ALUResOut,  MEMReg_DataMemoryOutput32Bit_Out,  WB_Dest);
 
 // WB stage:
-wire [31:0] WB_Value;
+
 Mux2to1 wbStage(MEMReg_MEM_R_EN_OUT, MEMReg_ALUResOut, MEMReg_DataMemoryOutput32Bit_Out, WB_Value);
 
 endmodule
