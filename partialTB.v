@@ -1,4 +1,4 @@
-module kshrTB();
+module partialTB();
 reg clk = 0 ,rst = 0 , branchTaken = 0, freeze = 0, flush = 0, WBWriteEnable = 0 ;
 reg [31:0] branchAddress=31'd0 ,WBValue = 31'd0;
 reg [3:0] WBDest = 3'd0;
