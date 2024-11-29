@@ -9,7 +9,6 @@ module ID(input clk, rst, C, V, Z, N, WBWriteEnable ,
             output Two_src,
             output[3:0] src2_out);
 
-assign Two_src = controlUnitOut[2]||~instruction[25];
 
 wire condtionChechOut;
 wire [3:0] src2 ; 
@@ -17,6 +16,7 @@ assign src2_out = src2;
 
 
 wire [8:0] controlUnitOut;
+assign Two_src = controlUnitOut[2]||~instruction[25];
 RegisterFile registerFile(clk, rst, instruction[19:16],src2,WBDest, WBValue, WBWriteEnable, Rn, Rm);
 assign src2 = (controlUnitOut[2])? instruction[3:0] : instruction[15:12];
 //module ControlUnit( input[3:0] OPCode,

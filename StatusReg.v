@@ -1,8 +1,8 @@
 
 module StatusReg(clk, rst, en, statIn, statOut);
 
-    input wire[0:0] clk, rst, en;
-    input wire[3:0] statIn;
+    input [0:0] clk, rst, en;
+    input [3:0] statIn;
 
     output reg[3:0] statOut;
 

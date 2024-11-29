@@ -1,4 +1,4 @@
-module ID_Reg(input clk, rst,
+module ID_Reg(input clk, rst, flush,
                 input WB_EN, MEM_R_EN, MEM_W_EN, 
                 input[3:0] EXE_CMD,
                 input B, S,
@@ -22,19 +22,19 @@ module ID_Reg(input clk, rst,
                 input C,
                 output Cout);
 
-    register #(1) Reg1(clk, rst, ~freeze,  WB_EN, WB_EN_OUT);
-    register #(1) Reg2(clk, rst, ~freeze,  MEM_R_EN, MEM_R_EN_OUT);
-    register #(1) Reg3(clk, rst, ~freeze,  MEM_W_EN, MEM_W_EN_OUT);
-    register #(4) Reg4(clk, rst, ~freeze,  EXE_CMD, EXE_CMD_OUT);
-    register #(1) Reg5(clk, rst, ~freeze,  B, B_OUT);
-    register #(1) Reg6(clk, rst, ~freeze,  S, S_OUT);
-    register #(32) Reg7(clk, rst, ~freeze,  PC, PC_OUT);
-    register #(32) Reg8(clk, rst, ~freeze,  valRn, val1);
-    register #(32) Reg9(clk, rst, ~freeze,  valRm, valRmOut);
-    register #(1) Reg10(clk, rst, ~freeze,  imm, immOut);
-    register #(12) Reg11(clk, rst, ~freeze,  shiftOperand, shiftOperandOut);
-    register #(24) Reg12(clk, rst, ~freeze,  signedIMM, signedIMMOut);
-    register #(4) Reg13(clk, rst, ~freeze,  dest, destOut);
-    register #(1) Reg14(clk, rst, ~freeze,  C, Cout);
+    registerWithFlush #(1) Reg1(clk, rst,flush, ~freeze,  WB_EN, WB_EN_OUT);
+    registerWithFlush #(1) Reg2(clk, rst,flush, ~freeze,  MEM_R_EN, MEM_R_EN_OUT);
+    registerWithFlush #(1) Reg3(clk, rst,flush, ~freeze,  MEM_W_EN, MEM_W_EN_OUT);
+    registerWithFlush #(4) Reg4(clk, rst,flush, ~freeze,  EXE_CMD, EXE_CMD_OUT);
+    registerWithFlush #(1) Reg5(clk, rst,flush, ~freeze,  B, B_OUT);
+    registerWithFlush #(1) Reg6(clk, rst,flush, ~freeze,  S, S_OUT);
+    registerWithFlush #(32) Reg7(clk, rst,flush, ~freeze,  PC, PC_OUT);
+    registerWithFlush #(32) Reg8(clk, rst,flush, ~freeze,  valRn, val1);
+    registerWithFlush #(32) Reg9(clk, rst,flush, ~freeze,  valRm, valRmOut);
+    registerWithFlush #(1) Reg10(clk, rst,flush, ~freeze,  imm, immOut);
+    registerWithFlush #(12) Reg11(clk, rst,flush, ~freeze, shiftOperand, shiftOperandOut);
+    registerWithFlush #(24) Reg12(clk, rst,flush, ~freeze,  signedIMM, signedIMMOut);
+    registerWithFlush #(4) Reg13(clk, rst,flush, ~freeze,  dest, destOut);
+    registerWithFlush #(1) Reg14(clk, rst,flush, ~freeze,  C, Cout);
 
 endmodule

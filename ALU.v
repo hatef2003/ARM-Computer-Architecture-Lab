@@ -12,6 +12,7 @@ module ALU(input[31:0] val1, val2,
 
     always @(*)
     begin
+      N=1'd0;
         case(cmd)
         4'b0001:
         begin 
