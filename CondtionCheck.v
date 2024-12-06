@@ -1,78 +1,72 @@
 module CondtionCheck(input[3:0] cond, input z, c, n, v, output reg flag);
     always@(*)
     begin
-        flag = 1'b0;
+        flag <= 1'b0;
         case (cond)
-            4'd0000: 
+            4'b0000: 
             begin
-                if (z) 
-                    flag = 1'b1;
+                flag <= z;
             end 
-            4'd0001: 
+            4'b0001: 
             begin
-                if(~z) 
-                    flag = 1'b1;
+                flag <= ~z;
             end 
-            4'd0010: 
+            4'b0010: 
             begin
-                if(c) 
-                    flag = 1'b1;
+                flag <= c;
             end 
-            4'd0011: 
+            4'b0011: 
             begin
-                if(~c) 
-                    flag = 1'b1;
+                flag <= ~c;
             end 
-            4'd0100: 
+            4'b0100: 
             begin
-                if(n) 
-                    flag = 1'b1;
+                flag <= n;
             end 
-            4'd0101: 
+            4'b0101: 
             begin
-                if(~n) 
-                    flag = 1'b1;
+                flag <= ~n;
             end 
-            4'd0110: 
+            4'b0110: 
             begin
-                if(v) 
-                    flag = 1'b1;
+                flag <= v;
             end 
-            4'd0111: 
+            4'b0111: 
             begin
-                if(~v)
-                    flag = 1'b1;
+                flag <= ~v;
             end 
-            4'd1000: 
+            4'b1000: 
             begin
-                if(z & ~c)
-                    flag = 1'b1;
+                flag <= (z & ~c);
             end 
-            4'd1001: 
+            4'b1001: 
             begin
-                if(~c | z)
-                    flag = 1'b1;
+                flag <=(~c | z);
             end 
-            4'd1010: 
+            4'b1010: 
             begin
-                if(n == v)
-                    flag = 1'b1;
+                // if(n == v)
+                flag <= (n == v);
             end 
-            4'd1011: 
+            4'b1011: 
             begin
-                if(n!=v)
-                    flag = 1'b1;
+                // if(n!=v)
+                flag <= (n!=v);
             end 
-            4'd1100: 
+            4'b1100: 
             begin
-                if(~z &(n==v))
-                    flag = 1'b1;
+                // if(~z &(n==v))
+                flag <= (~z &(n==v));
             end 
-            4'd1101: 
+            4'b1101: 
             begin
-                if(z | (n!=v))
-                    flag = 1'b1;
+                // if(z | (n!=v))
+                flag <= (z | (n!=v));
             end 
+            4'b1110: 
+            begin
+                flag <=1;
+            end
           
         endcase
     end

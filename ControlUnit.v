@@ -1,143 +1,55 @@
 
 
-module ControlUnit( input[3:0] OPCode,
-                    input[1:0] Mode, 
-                    input S,
+module ControlUnit( input[3:0] opCodeIn,
+                    input[1:0] modeIn, 
+                    input SIn,
                     output [8:0] out);
-//  S, B, EXE_CMD,
-// MEM_W_EN, MEM_R_EN,
-// WB_EN
+    reg [3:0] EXE_CMDOut;
+    reg MEM_R_ENOut, MEM_W_ENOut;
+    reg WB_ENOut = 1'b0;
+    reg BOut, SOut;
 
-    reg[3:0] EXE_CMD;
-    reg SOUT, B, MEM_WB_EN, MEM_R_EN, WB_EN;
+    always @(modeIn, opCodeIn, SIn) begin
+        EXE_CMDOut = 4'd0;
+        {MEM_R_ENOut, MEM_W_ENOut} = 2'd0;
+        {WB_ENOut, BOut, SOut} = 3'd0;
 
-   always @(*)
-    begin
-        case(OPCode)
-            4'b1101: begin
-                MEM_WB_EN=0;
-                MEM_R_EN=0;
-                WB_EN=1;
-                 EXE_CMD=4'b0001;//MOV
-                 SOUT=S;
-                 B=0;
-                 end
-            4'b1111: begin
-                MEM_WB_EN=0;
-                MEM_R_EN=0;
-                WB_EN=1;
-                EXE_CMD=4'b1001;//MVN
-                SOUT=S;
-                B=0;
-                 end
-            4'b0101: begin
-                MEM_WB_EN=0;
-                MEM_R_EN=0;
-                WB_EN=1;
-                EXE_CMD=4'b0011;//ADC
-                SOUT=S;
-                B=0;
+        case (opCodeIn)
+            4'b1101: EXE_CMDOut = 4'b0001; // MOV
+            4'b1111: EXE_CMDOut = 4'b1001; // MVN
+            4'b0100: EXE_CMDOut = 4'b0010; // ADD, LDR, STR
+            4'b0101: EXE_CMDOut = 4'b0011; // ADC
+            4'b0010: EXE_CMDOut = 4'b0100; // SUB
+            4'b0110: EXE_CMDOut = 4'b0101; // SBC
+            4'b0000: EXE_CMDOut = 4'b0110; // AND
+            4'b1100: EXE_CMDOut = 4'b0111; // ORR
+            4'b0001: EXE_CMDOut = 4'b1000; // EOR
+            4'b1010: EXE_CMDOut = 4'b0100; // CMP
+            4'b1000: EXE_CMDOut = 4'b0110; // TST
+            default: EXE_CMDOut = 4'b0001;
+        endcase
+
+        case (modeIn)
+            2'b00: begin
+                SOut = SIn; // no write-back for CMP and TST
+                WB_ENOut = (opCodeIn == 4'b1010 || opCodeIn == 4'b1000) ? 1'b0 : 1'b1;
             end
-            4'b0010: begin
-                MEM_WB_EN=0;
-                MEM_R_EN=0;
-                WB_EN=1;
-                EXE_CMD=4'b0100;//SUB
-                SOUT=S;
-                B=0;
-                end
-            4'b0110: begin
-                MEM_WB_EN=0;
-                MEM_R_EN=0;
-                WB_EN=1;
-                 EXE_CMD=4'b0101;//SBC
-                 SOUT=S;
-                 B=0;
-                 end
-            4'b0000: begin
-                MEM_WB_EN=0;
-                MEM_R_EN=0;
-                WB_EN=1;
-                 EXE_CMD=4'b0110;//AND
-                 SOUT=S;
-                 B=0;
-                 end
-            4'b1100: begin
-                MEM_WB_EN=0;
-                MEM_R_EN=0;
-                WB_EN=1;
-                 EXE_CMD=4'b0111;//ORR
-                 SOUT=S;
-                 B=0;
-                 end
-            4'b0001: begin
-                MEM_WB_EN=0;
-                MEM_R_EN=0;
-                WB_EN=1;
-                 EXE_CMD=4'b1000;//EOR
-                 SOUT=S;
-                 B=0;
-                 end
-            4'b1010: begin
-                MEM_WB_EN=0;
-                MEM_R_EN=0;
-                WB_EN=1;
-                 EXE_CMD=4'b0100;//CMP
-                 SOUT=1;
-                 B=0;
-                 end
-            4'b1000: begin
-                MEM_WB_EN=0;
-                MEM_R_EN=0;
-                WB_EN=1;
-                 EXE_CMD=4'b0110;//TST
-                 SOUT=1;
-                 B=0;
-                 end
-            4'b0100:
-            begin
-                if (Mode==2'b00) begin
-                    MEM_WB_EN=0;
-                    MEM_R_EN=0;
-                    WB_EN=1;
-                    EXE_CMD=4'b0010;//ADD
-                    SOUT=S;
-                    B=0;
-                    end
-                else if (Mode==2'b01) begin
-                    case (S)
-                        1'b0: begin
-                            MEM_WB_EN=0;
-                            MEM_R_EN=1;
-                            WB_EN=1; 
-                            EXE_CMD=4'b0010;//LDR
-                            SOUT=1;
-                            B=0;
-                        end
-                        1'b1: begin
-                            MEM_WB_EN=1;
-                            MEM_R_EN=0;
-                            WB_EN=1; 
-                            EXE_CMD=4'b0010;//STR
-                            SOUT=0;
-                            B=0;
-                        end
-                    endcase
-                end
-                else begin
-                    EXE_CMD=4'b0000;//B
-                    SOUT=0;
-                    B=1;
-                    MEM_WB_EN=0;
-                    MEM_R_EN=0;
-                    WB_EN=0;
-                end
+
+            2'b01: begin
+                WB_ENOut = SIn;
+                MEM_R_ENOut = SIn;
+                MEM_W_ENOut = ~SIn;
             end
-            // default:
-            //hamec hi sabet
+
+            2'b10: 
+                BOut = 1'b1;
+            
         endcase
     end
+    //   reg [3:0] EXE_CMDOut;
+    // reg MEM_R_ENOut, MEM_W_ENOut;
+    // reg WB_ENOut, BOut, SOut;
+    assign out={SOut, BOut, EXE_CMDOut,MEM_W_ENOut, MEM_R_ENOut,WB_ENOut};
 
-    assign out={SOUT, B, EXE_CMD,MEM_WB_EN, MEM_R_EN,WB_EN};
 
 endmodule

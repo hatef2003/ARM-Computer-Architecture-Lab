@@ -4,35 +4,42 @@ module RegisterFile(input clk, rst,
                     input writeBackEn,
                     output reg [31:0] reg1, reg2);
 
-    reg[14:0] registers[31:0];
+    reg[31:0] registers[0:15];
     
     always @(negedge clk , posedge rst) 
     begin
+        if(destWB==4'd2)
+            $display("time to write");
         if (rst)
         begin 
-            registers[0] = 31'b1;
-            registers[1] = 31'b1;
-            registers[2] = 31'b1;
-            registers[3] = 31'b1;
-            registers[4] = 31'b1;
-            registers[5] = 31'b1;
-            registers[6] = 31'b1;
-            registers[7] = 31'b1;
-            registers[8] = 31'b1;
-            registers[9] = 31'b1;
-            registers[10] = 31'b1;
-            registers[11] = 31'b1;
-            registers[12] = 31'b1;
-            registers[13] = 31'b1;
-            registers[14] = 31'b1;
-            registers[15] = 31'b1;
+            registers[0] = 32'b0;
+            registers[1] = 32'b0;
+            registers[2] = 32'b0;
+            registers[3] = 32'b0;
+            registers[4] = 32'b0;
+            registers[5] = 32'b0;
+            registers[6] = 32'b0;
+            registers[7] = 32'b0;
+            registers[8] = 32'b0;
+            registers[9] = 32'b0;
+            registers[10] = 32'b0;
+            registers[11] = 32'b0;
+            registers[12] = 32'b0;
+            registers[13] = 32'b0;
+            registers[14] = 32'b0;            
+            registers[15] = 32'b0;            
         end
-        registers[destWB]<=resultWB;
+        if (writeBackEn)
+        begin 
+            registers[destWB]<=resultWB;
+             if(destWB==4'd2)
+            $display("time to write2 %d" , resultWB);
+        end
     end
 
-    always@(src1 or src2)
+    always@(*)
     begin
-        reg1<=registers[src1];
-        reg2<=registers[src2];
+        reg1=registers[src1];
+        reg2=registers[src2];
     end
 endmodule

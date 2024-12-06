@@ -22,7 +22,7 @@ module DataMemory( input clk , rst , MEM_W_EN, MEM_R_EN,
         mem[addr] = Val_Rm;
       end
     end
-    assign out = mem[addr];
+    assign out =(MEM_R_EN)? mem[addr] : 32'd0   ;
     // always@(*) begin
     //     if (MEM_W_EN==1'b1) begin
     //         mem[addr]=Val_Rm;
