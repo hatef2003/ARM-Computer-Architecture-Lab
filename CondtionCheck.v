@@ -65,9 +65,9 @@ module CondtionCheck(input[3:0] cond, input z, c, n, v, output reg flag);
             end 
             4'b1110: 
             begin
-                flag <=1;
-            end
-          
+                // if(z | (n!=v))
+                flag <= (1'b1);
+            end 
         endcase
     end
 endmodule

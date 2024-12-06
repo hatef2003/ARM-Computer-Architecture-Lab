@@ -26,7 +26,7 @@ wire[8:0] controlsignalsOut;
 
 IF intructionFetch(clk , rst ,branchTaken, freeze, branchAddress , IF_PC , IF_instruction);
 IF_Reg intructionFetchRegister(clk,rst , freeze , flush , IF_PC , IF_instruction , PC_ID , instruction_ID);
-ID instructionDecode (clk, rst,C,V,Z,N, WB_WB_EN,freeze,PC_ID, instruction_ID, WB_Value,
+ID instructionDecode (clk, rst,C,V,Z,N, WB_WB_EN, freeze, PC_ID, instruction_ID, WB_Value,
      WBDest, Rn, Rm , imm ,COUT, ZOUT, VOUT, NOUT,signedIMM, valGeneratorIMM , controlsignals, Two_src, hazard_src2);
 
 wire MEM_W_EN_OUT, memWEnOut;
@@ -75,7 +75,7 @@ wire MEMReg_MEM_R_EN_OUT;
 wire [31:0] MEMReg_ALUResOut; 
 wire [31:0] MEMReg_DataMemoryOutput32Bit_Out; 
 
-DataMemory dataMemory (clk , rst ,MEM_W_EN_OUT , MEM_R_EN_OUT , ALUResOut,valRmOut, memOut);
+DataMemory dataMemory (clk , rst ,MEM_W_EN_OUT , MEM_R_EN_OUT , ALUResOut,valRmOut2, memOut);
 MEM_Reg memReg(clk, rst, 1'b0, WB_EN_OUT, MEM_R_EN_OUT, ALUResOut, memOut, dest,
                  WB_WB_EN,  MEMReg_MEM_R_EN_OUT,  MEMReg_ALUResOut,  MEMReg_DataMemoryOutput32Bit_Out, WBDest);
 

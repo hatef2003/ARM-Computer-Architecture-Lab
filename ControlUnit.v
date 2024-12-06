@@ -6,8 +6,7 @@ module ControlUnit( input[3:0] opCodeIn,
                     output [8:0] out);
     reg [3:0] EXE_CMDOut;
     reg MEM_R_ENOut, MEM_W_ENOut;
-    reg WB_ENOut = 1'b0;
-    reg BOut, SOut;
+    reg WB_ENOut, BOut, SOut;
 
     always @(modeIn, opCodeIn, SIn) begin
         EXE_CMDOut = 4'd0;
