@@ -24,6 +24,10 @@ wire [3:0] dest;
 wire [3:0] WBDestOut;
 wire[8:0] controlsignalsOut; 
 
+wire[3:0] fu_src1, fu_src2;
+wire [1:0] sel_src1, sel_src2;
+wire [31:0] ALUResOut, valRmOut2;
+
 IF intructionFetch(clk , rst ,branchTaken, freeze, branchAddress , IF_PC , IF_instruction);
 IF_Reg intructionFetchRegister(clk,rst , freeze , branchTaken , IF_PC , IF_instruction , PC_ID , instruction_ID);
 ID instructionDecode (clk, rst,C,V,Z,N, WB_WB_EN, freeze, PC_ID, instruction_ID, WB_Value,
@@ -41,8 +45,8 @@ assign branchTaken=controlsignalsOut[7];
 wire [31:0] IF_PCOut , IF_instructionOut;
 wire [31:0] PC_IDOut , instruction_IDOut;
 wire immOut,CoutOut;
-ID_Reg id_reg(clk, rst,branchTaken, controlsignals[0], controlsignals[1],controlsignals[2],controlsignals[6:3],controlsignals[7],controlsignals[8] , PC_ID ,Rn,Rm,imm,valGeneratorIMM,signedIMM,instruction_ID[15:12],
-         controlsignalsOut[0], controlsignalsOut[1],controlsignalsOut[2],controlsignalsOut[6:3],controlsignalsOut[7],controlsignalsOut[8] , PC_IDOut ,RnOut,RmOut,immOut,valGeneratorIMMOut,signedIMMOut,WBDestOut,1'b0,COUT,CoutOut);   
+ID_Reg id_reg(clk, rst,branchTaken, controlsignals[0], controlsignals[1],controlsignals[2],controlsignals[6:3],controlsignals[7],controlsignals[8] , PC_ID ,Rn,Rm,imm,valGeneratorIMM,signedIMM,instruction_ID[15:12], instruction_ID[19:16], hazard_src2,
+         controlsignalsOut[0], controlsignalsOut[1],controlsignalsOut[2],controlsignalsOut[6:3],controlsignalsOut[7],controlsignalsOut[8] , PC_IDOut ,RnOut,RmOut,immOut,valGeneratorIMMOut,signedIMMOut,WBDestOut,1'b0,COUT,CoutOut, fu_src1, fu_src2);   
 wire memREnOut, WEout;
 wire[31:0] valRmOut;
 
@@ -50,7 +54,9 @@ wire statusBits;
 EXE exe(clk, rst,
         controlsignalsOut[1], controlsignalsOut[2], controlsignalsOut[0] ,
         controlsignalsOut[6:3], PC_IDOut, RnOut, RmOut, immOut, valGeneratorIMMOut,
-        signedIMMOut,CoutOut, memREnOut, memWEnOut , WEout, Gen_V,ALURes, valRmOut,
+        signedIMMOut,CoutOut, sel_src1, sel_src2, WB_Value, ALUResOut, 
+        
+        memREnOut, memWEnOut , WEout, Gen_V,ALURes, valRmOut,
         branchAddress,statusBits);
 assign Gen_Z = (ALURes==0)? 1 : 0;
 assign Gen_N = (ALURes[31] == 1)? 1:0;
@@ -62,7 +68,6 @@ assign C = statOut[3];
 assign V = statOut[2];
 assign Z = statOut[1];
 assign N = statOut[0];
-wire [31:0] ALUResOut, valRmOut2;
 EXE_Reg exeReg (clk ,rst, 
         WEout , memREnOut , memWEnOut ,
         ALURes , valRmOut,
@@ -83,4 +88,12 @@ MEM_Reg memReg(clk, rst, 1'b0, WB_EN_OUT, MEM_R_EN_OUT, ALUResOut, memOut, dest,
 
 Mux2to1 wbStage(MEMReg_MEM_R_EN_OUT, MEMReg_ALUResOut, MEMReg_DataMemoryOutput32Bit_Out, WB_Value);
 
+// forwarding
+
+ForwardingUnit fu(fu_src1, fu_src2, dest, WBDest, WB_EN_OUT, WB_WB_EN,
+                        sel_src1, sel_src2);
+// input[3:0] src1, src2,
+// input[3:0] mem_Dest, wb_Dest,
+// input mem_WB_EN, wb_WB_EN,
+// output reg [1:0] sel_src1, sel_src2
 endmodule
