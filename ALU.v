@@ -34,19 +34,19 @@ module ALU(input[31:0] val1, val2,
         4'b0011:
         begin 
         extendedOut = val1 + val2 + carry_in_extended;
-        if (val1[31]==val2[31] && extendedOut[32]!=val1[31])
+        if (val1[31]==val2[31] && extendedOut[31]!=val1[31])
             N=1 ;
         end
         4'b0100:
         begin 
         extendedOut = val1 - val2;
-        if (val1[31]!=val2[31] && extendedOut[32]!=val1[31])
+        if (val1[31]!=val2[31] && extendedOut[31]!=val1[31])
             N=1 ;
         end
         4'b0101:
         begin 
         extendedOut = val1 - val2 - not_carry_in_extended;
-        if (val1[31]!=val2[31] && extendedOut[32]!=val1[31])
+        if (val1[31]!=val2[31] && extendedOut[31]!=val1[31])
             N=1 ;
         end
         4'b0110:
@@ -60,10 +60,6 @@ module ALU(input[31:0] val1, val2,
         4'b1000:
         begin 
         extendedOut = val1 ^ val2;
-        end
-        4'b0100:
-        begin 
-        extendedOut = val1 - val2;
         end
         4'b0110:
         begin 
