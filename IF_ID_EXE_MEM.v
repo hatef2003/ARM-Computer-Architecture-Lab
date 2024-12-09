@@ -25,7 +25,7 @@ wire [3:0] WBDestOut;
 wire[8:0] controlsignalsOut; 
 
 IF intructionFetch(clk , rst ,branchTaken, freeze, branchAddress , IF_PC , IF_instruction);
-IF_Reg intructionFetchRegister(clk,rst , freeze , flush , IF_PC , IF_instruction , PC_ID , instruction_ID);
+IF_Reg intructionFetchRegister(clk,rst , freeze , branchTaken , IF_PC , IF_instruction , PC_ID , instruction_ID);
 ID instructionDecode (clk, rst,C,V,Z,N, WB_WB_EN, freeze, PC_ID, instruction_ID, WB_Value,
      WBDest, Rn, Rm , imm ,COUT, ZOUT, VOUT, NOUT,signedIMM, valGeneratorIMM , controlsignals, Two_src, hazard_src2);
 
@@ -41,7 +41,7 @@ assign branchTaken=controlsignalsOut[7];
 wire [31:0] IF_PCOut , IF_instructionOut;
 wire [31:0] PC_IDOut , instruction_IDOut;
 wire immOut,CoutOut;
-ID_Reg id_reg(clk, rst,flush, controlsignals[0], controlsignals[1],controlsignals[2],controlsignals[6:3],controlsignals[7],controlsignals[8] , PC_ID ,Rn,Rm,imm,valGeneratorIMM,signedIMM,instruction_ID[15:12],
+ID_Reg id_reg(clk, rst,branchTaken, controlsignals[0], controlsignals[1],controlsignals[2],controlsignals[6:3],controlsignals[7],controlsignals[8] , PC_ID ,Rn,Rm,imm,valGeneratorIMM,signedIMM,instruction_ID[15:12],
          controlsignalsOut[0], controlsignalsOut[1],controlsignalsOut[2],controlsignalsOut[6:3],controlsignalsOut[7],controlsignalsOut[8] , PC_IDOut ,RnOut,RmOut,immOut,valGeneratorIMMOut,signedIMMOut,WBDestOut,1'b0,COUT,CoutOut);   
 wire memREnOut, WEout;
 wire[31:0] valRmOut;

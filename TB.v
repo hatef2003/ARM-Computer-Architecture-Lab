@@ -7,7 +7,7 @@ module TB();
       rst = 1;
       #10
       rst = 0;
-      #1000
+      #10000
       $stop;
     end
 endmodule
