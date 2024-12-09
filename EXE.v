@@ -6,7 +6,7 @@ module EXE(input clk, rest, MEM_R_EN, MEM_W_EN, WB_EN,
             input[11:0] shiftOperand, 
             input[23:0] signedIMM, 
             input aluCarryOut,
-            input sel_src1, sel_src2,
+            input[1:0] sel_src1, sel_src2,
             input [31:0]wb_value,alu_res_mem,
 
 
@@ -31,6 +31,6 @@ module EXE(input clk, rest, MEM_R_EN, MEM_W_EN, WB_EN,
     ALU alu(mux1_out, val2_gen_out, EXE_CMD, aluCarryOut, ALURes,N, statusBits);
     ValGenerator val2generator(mux2_out, imm, memCommand, shiftOperand, val2_gen_out);
 
-    Mux3to1 MUX_1(sel_src1, wb_value,alu_res_mem,val1, mux1_out);
-    Mux3to1 MUX_2(sel_src2, wb_value,alu_res_mem,Rm, mux2_out);
+    Mux3to1 MUX_1(sel_src1,val1,alu_res_mem, wb_value, mux1_out);
+    Mux3to1 MUX_2(sel_src2,Rm,alu_res_mem, wb_value, mux2_out);
 endmodule
