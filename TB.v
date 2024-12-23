@@ -1,7 +1,7 @@
 module TB();
     reg clk =0, rst = 0;
     always #5 clk=~clk;
-    IF_ID_EXE idididid(clk , rst );
+    IF_ID_EXE_MEM idididid(clk , rst );
     initial 
     begin
       rst = 1;
