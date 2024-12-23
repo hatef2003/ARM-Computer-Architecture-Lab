@@ -9,13 +9,13 @@ module DataMemory( input clk , rst , MEM_W_EN, MEM_R_EN,
       
     assign addr={2'b00 , temp[31:2]};
 
-    always@ (posedge clk, posedge rst)
+    always@ (posedge clk)
     begin
-
-      if (MEM_W_EN)
+      if(MEM_W_EN)
       begin
         mem[addr] <= Val_Rm;
       end
+		else ;
     end
     assign out =(MEM_R_EN)? mem[addr] : 32'd0   ;
     // always@(*) begin

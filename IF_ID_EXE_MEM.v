@@ -1,4 +1,4 @@
-module IF_ID_EXE(input clk , rst);
+module IF_ID_EXE_MEM(input clk , rst);
 
 wire [31:0] ALURes;
 
