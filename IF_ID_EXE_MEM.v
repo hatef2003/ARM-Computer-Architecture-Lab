@@ -1,4 +1,4 @@
-module IF_ID_EXE_MEM(input clk , rst);
+module IF_ID_EXE_MEM(input clk , rst , forward_en);
 
 wire [31:0] ALURes;
 
@@ -69,7 +69,7 @@ ID instructionDecode (  clk, rst,C,V,Z,N, WB_WB_EN, freeze, PC_ID, instruction_I
 
 
 Hazard hazard(  WB_EN_OUT, controlsignalsOut[0], Two_src, dest, WBDestOut, instruction_ID[19:16], hazard_src2,
-                freeze);
+                controlsignalsOut[1], forward_en,freeze);
 
 ID_Reg id_reg(clk, rst,branchTaken, controlsignals[0], controlsignals[1],controlsignals[2],controlsignals[6:3],controlsignals[7],controlsignals[8] , PC_ID ,Rn,Rm,imm,valGeneratorIMM,signedIMM,instruction_ID[15:12], instruction_ID[19:16], hazard_src2,
                 controlsignalsOut[0], controlsignalsOut[1],controlsignalsOut[2],controlsignalsOut[6:3],controlsignalsOut[7],controlsignalsOut[8] , PC_IDOut ,RnOut,RmOut,immOut,valGeneratorIMMOut,signedIMMOut,WBDestOut,1'b0,COUT,CoutOut, fu_src1, fu_src2);   

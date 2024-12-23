@@ -8,5 +8,5 @@ endmodule
 module Mux3to1( input[1:0] select, 
                 input[31:0] in0, in1, in2,
                 output [31:0] out);
-    assign out = (select==0'b00)?in0:(select==0'b01) ? in1:in2;
+    assign out = (select==2'b00)?in0:(select==2'b01) ? in1:in2;
 endmodule
