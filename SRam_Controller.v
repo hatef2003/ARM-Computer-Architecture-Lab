@@ -11,9 +11,10 @@ module SramController(input clk, rst, wr_en, rd_en,
     // sram_we=1, read high
     //
     // ready=1
-    wire[31:0] addr , temp;
+    wire[31:0]  temp;
+    wire [17:0] addr ;
     assign temp = ALU_Res-32'd1024;
-    assign addr={2'b00 , temp[31:2]};
+    assign addr={temp[18:2],1'b0};
     reg [15:0] SRAM_DQ_Reg;
     assign SRAM_DQ= wr_en ?SRAM_DQ_Reg:16'bz;
     
@@ -32,51 +33,64 @@ module SramController(input clk, rst, wr_en, rd_en,
         endcase
     end
 
-    always @(ps)
+    always @(*)
     begin
         ready=1'b1;
         SRAM_WE_N=1'b1;
         SRAM_DQ_Reg=16'd0;
+        SRAM_ADDR = 18'd0;
         case (ps)
         3'b000:
-        ;
+        begin
+            assign ready = ~(wr_en | rd_en);
+            SRAM_WE_N=1'b1;
+        end 
         3'b001: 
         begin
             assign ready = 1'b0;
-            assign SRAM_WE_N=(wr_en==1'b1)? 1'b0 : (rd_en==1'b1)?1'b1 : SRAM_WE_N;
+            assign SRAM_WE_N=~wr_en;
             
+
             if (wr_en==1'b1) begin
-                SRAM_ADDR = addr[17:0];
+                SRAM_ADDR = addr;
                 SRAM_DQ_Reg = writeData[15:0];
             end
             else begin
                 // SRAM_DQ_Reg=16'bz;
-                SRAM_ADDR = addr[17:0];
+                SRAM_ADDR = addr;
             end
         end
         3'b010:
         begin
+            assign SRAM_WE_N=~wr_en;
+
             if (wr_en==1'b1) begin
-                SRAM_ADDR = addr[17:0] + 18'd1;
+                SRAM_ADDR = addr + 18'd1;
                 SRAM_DQ_Reg = writeData[31:16];
                 
             end
             else begin
-                SRAM_ADDR = addr[17:0] + 18'd1;
+                SRAM_ADDR = addr + 18'd1;
                 readData[15:0] = SRAM_DQ;
             end
         end
         3'b011:
         begin
+            assign SRAM_WE_N=1'b1;
+
             if (wr_en==1'b0) begin
                 readData[31:16] = SRAM_DQ;
             end
         end
-        3'b100:
-            ;
-        3'b101: 
-            assign ready=1'd1;
+        3'b100:begin
+        assign SRAM_WE_N=1'b1;
+        end
+        3'b101: begin 
+        assign SRAM_WE_N=1'b1;
+        assign ready=1'd1;
+        end
         endcase
+        
     end
 
     assign {SRAM_UB_N, SRAM_LB_N, SRAM_CE_N, SRAM_OE_N} = 4'd0;
