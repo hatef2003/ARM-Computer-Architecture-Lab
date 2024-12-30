@@ -55,13 +55,14 @@ wire MEM_W_EN_OUT, memWEnOut;
 wire [31:0] memOut;
 wire MEMReg_MEM_R_EN_OUT; 
 wire [31:0] MEMReg_ALUResOut; 
-wire [31:0] MEMReg_DataMemoryOutput32Bit_Out; 
+wire [31:0] MEMReg_DataMemoryOutput32Bit_Out;
+wire mem_ready; 
 
 // modules
-IF intructionFetch(     clk, rst, branchTaken, freeze, branchAddress, 
+IF intructionFetch(     clk, rst, branchTaken, freeze||~mem_ready, branchAddress, 
                         IF_PC , IF_instruction);
 
-IF_Reg intructionFetchRegister( clk, rst, freeze, branchTaken, IF_PC, IF_instruction, 
+IF_Reg intructionFetchRegister( clk, rst, freeze||~mem_ready, branchTaken, IF_PC, IF_instruction, 
                                 PC_ID, instruction_ID);
 
 ID instructionDecode (  clk, rst,C,V,Z,N, WB_WB_EN, freeze, PC_ID, instruction_ID, WB_Value, WBDest, 
@@ -71,7 +72,7 @@ ID instructionDecode (  clk, rst,C,V,Z,N, WB_WB_EN, freeze, PC_ID, instruction_I
 Hazard hazard(  WB_EN_OUT, controlsignalsOut[0], Two_src, dest, WBDestOut, instruction_ID[19:16], hazard_src2,
                 controlsignalsOut[1], forward_en,freeze);
 
-ID_Reg id_reg(clk, rst,branchTaken, controlsignals[0], controlsignals[1],controlsignals[2],controlsignals[6:3],controlsignals[7],controlsignals[8] , PC_ID ,Rn,Rm,imm,valGeneratorIMM,signedIMM,instruction_ID[15:12], instruction_ID[19:16], hazard_src2,
+ID_Reg id_reg(clk, rst,branchTaken||~mem_ready, controlsignals[0], controlsignals[1],controlsignals[2],controlsignals[6:3],controlsignals[7],controlsignals[8] , PC_ID ,Rn,Rm,imm,valGeneratorIMM,signedIMM,instruction_ID[15:12], instruction_ID[19:16], hazard_src2,
                 controlsignalsOut[0], controlsignalsOut[1],controlsignalsOut[2],controlsignalsOut[6:3],controlsignalsOut[7],controlsignalsOut[8] , PC_IDOut ,RnOut,RmOut,immOut,valGeneratorIMMOut,signedIMMOut,WBDestOut,1'b0,COUT,CoutOut, fu_src1, fu_src2);   
 
 EXE exe(clk, rst,
@@ -85,7 +86,7 @@ EXE exe(clk, rst,
 StatusReg StReg(clk, rst,controlsignalsOut[8] ,{Gen_C , Gen_V, Gen_Z, Gen_N},
                 statOut);
 
-EXE_Reg exeReg (clk ,rst, 
+EXE_Reg exeReg (clk ,rst, ~mem_ready,
         WEout , memREnOut , memWEnOut ,
         ALURes , valRmOut,
         WBDestOut, 
@@ -94,9 +95,9 @@ EXE_Reg exeReg (clk ,rst,
         ALUResOut , valRmOut2 , dest);
 
 DataMemory dataMemory ( clk, rst, MEM_W_EN_OUT, MEM_R_EN_OUT, ALUResOut, valRmOut2, 
-                        memOut);
+                        memOut, mem_ready);
 
-MEM_Reg memReg( clk, rst, 1'b0, WB_EN_OUT, MEM_R_EN_OUT, ALUResOut, memOut, dest,
+MEM_Reg memReg( clk, rst, ~mem_ready, WB_EN_OUT, MEM_R_EN_OUT, ALUResOut, memOut, dest,
                 WB_WB_EN, MEMReg_MEM_R_EN_OUT, MEMReg_ALUResOut, MEMReg_DataMemoryOutput32Bit_Out, WBDest);
 
 Mux2to1 wbStage(MEMReg_MEM_R_EN_OUT, MEMReg_ALUResOut, MEMReg_DataMemoryOutput32Bit_Out, WB_Value);
