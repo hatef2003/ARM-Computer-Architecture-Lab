@@ -45,7 +45,7 @@ module DataMemory( input clk , rst , MEM_W_EN, MEM_R_EN,
                         SRAM_UB_N, SRAM_LB_N, SRAM_WE_N, SRAM_CE_N, SRAM_OE_N);
 
 
-  Sram sram (clk, rst, Sram_WE_N,
+  Sram sram (clk, rst, SRAM_WE_N,
             SRAM_ADDR,
             SRAM_DQ);
 

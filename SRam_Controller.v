@@ -15,7 +15,7 @@ module SramController(input clk, rst, wr_en, rd_en,
     assign temp = ALU_Res-32'd1024;
     assign addr={2'b00 , temp[31:2]};
     reg [15:0] SRAM_DQ_Reg;
-    assign SRAM_DQ=SRAM_DQ_Reg;
+    assign SRAM_DQ= wr_en ?SRAM_DQ_Reg:16'bz;
     
     reg [2:0] ps, ns;
 
@@ -32,8 +32,11 @@ module SramController(input clk, rst, wr_en, rd_en,
         endcase
     end
 
-    always @(*)
+    always @(ps)
     begin
+        ready=1'b1;
+        SRAM_WE_N=1'b1;
+        SRAM_DQ_Reg=16'd0;
         case (ps)
         3'b000:
         ;
@@ -44,10 +47,10 @@ module SramController(input clk, rst, wr_en, rd_en,
             
             if (wr_en==1'b1) begin
                 SRAM_ADDR = addr[17:0];
-                SRAM_DQ_Reg <= writeData[15:0];
+                SRAM_DQ_Reg = writeData[15:0];
             end
             else begin
-                SRAM_DQ_Reg<=16'bz;
+                // SRAM_DQ_Reg=16'bz;
                 SRAM_ADDR = addr[17:0];
             end
         end
@@ -55,18 +58,18 @@ module SramController(input clk, rst, wr_en, rd_en,
         begin
             if (wr_en==1'b1) begin
                 SRAM_ADDR = addr[17:0] + 18'd1;
-                SRAM_DQ_Reg <= writeData[31:16];
+                SRAM_DQ_Reg = writeData[31:16];
                 
             end
             else begin
                 SRAM_ADDR = addr[17:0] + 18'd1;
-                readData[15:0] <= SRAM_DQ;
+                readData[15:0] = SRAM_DQ;
             end
         end
         3'b011:
         begin
             if (wr_en==1'b0) begin
-                readData[31:16] <= SRAM_DQ;
+                readData[31:16] = SRAM_DQ;
             end
         end
         3'b100:
