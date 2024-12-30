@@ -39,19 +39,16 @@ module SramController(input clk, rst, wr_en, rd_en,
             assign ready = 1'b0;
             assign SRAM_WE_N=(wr_en==1'b1)? 1'b0 : (rd_en==1'b1)?1'b1 : SRAM_WE_N;
             assign Sram_DQ=16'bz;
-        end
-        3'b010:
-        begin
+            
             if (wr_en==1'b1) begin
                 SRAM_ADDROut = addr[17:0];
                 Sram_DQ <= writeData[15:0];
             end
             else begin
                 SRAM_ADDR = addr[17:0];
-                readData[15:0] <= SRAM_DQ;
             end
         end
-        3'b011:
+        3'b010:
         begin
             if (wr_en==1'b1) begin
                 SRAM_ADDROut = addr[17:0] + 18'd1;
@@ -60,6 +57,12 @@ module SramController(input clk, rst, wr_en, rd_en,
             end
             else begin
                 SRAM_ADDR = addr[17:0] + 18'd1;
+                readData[15:0] <= SRAM_DQ;
+            end
+        end
+        3'b011:
+        begin
+            if (wr_en==1'b0) begin
                 readData[31:16] <= SRAM_DQ;
             end
         end
