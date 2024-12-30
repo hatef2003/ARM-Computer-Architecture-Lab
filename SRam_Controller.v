@@ -5,16 +5,13 @@ module SramController(input clk, rst, wr_en, rd_en,
                         inout [15:0] SRAM_DQ,
                         output reg [17:0] SRAM_ADDR,
                         output reg SRAM_UB_N, SRAM_LB_N, SRAM_WE_N, SRAM_CE_N, SRAM_OE_N);
-    // ready = 0
-    // addr low, data low, sram_we=0
-    // addr high, data high, read low
-    // sram_we=1, read high
-    //
-    // ready=1
     wire[31:0]  temp;
-    wire [17:0] addr ;
+    wire [17:0] addr , read_addr ;
+    wire idel_ready;
+    assign idel_ready = ~(wr_en | rd_en);
     assign temp = ALU_Res-32'd1024;
     assign addr={temp[18:2],1'b0};
+    assign read_addr = {temp[18:3] ,2'b00 };
     reg [15:0] SRAM_DQ_Reg;
     assign SRAM_DQ= wr_en ?SRAM_DQ_Reg:16'bz;
     
@@ -33,7 +30,7 @@ module SramController(input clk, rst, wr_en, rd_en,
         endcase
     end
 
-    always @(*)
+    always @(ps,rd_en, wr_en)
     begin
         ready=1'b1;
         SRAM_WE_N=1'b1;
@@ -41,28 +38,23 @@ module SramController(input clk, rst, wr_en, rd_en,
         SRAM_ADDR = 18'd0;
         case (ps)
         3'b000:
-        begin
-            assign ready = ~(wr_en | rd_en);
-            SRAM_WE_N=1'b1;
-        end 
+            assign ready =idel_ready;
         3'b001: 
         begin
-            assign ready = 1'b0;
-            assign SRAM_WE_N=~wr_en;
-            
-
+            assign  ready = 1'b0;
+             SRAM_WE_N=~wr_en;
             if (wr_en==1'b1) begin
                 SRAM_ADDR = addr;
                 SRAM_DQ_Reg = writeData[15:0];
             end
             else begin
                 // SRAM_DQ_Reg=16'bz;
-                SRAM_ADDR = addr;
+                 SRAM_ADDR = addr;
             end
         end
         3'b010:
         begin
-            assign SRAM_WE_N=~wr_en;
+             SRAM_WE_N=~wr_en;
 
             if (wr_en==1'b1) begin
                 SRAM_ADDR = addr + 18'd1;
@@ -76,18 +68,18 @@ module SramController(input clk, rst, wr_en, rd_en,
         end
         3'b011:
         begin
-            assign SRAM_WE_N=1'b1;
+             SRAM_WE_N=1'b1;
 
             if (wr_en==1'b0) begin
                 readData[31:16] = SRAM_DQ;
             end
         end
         3'b100:begin
-        assign SRAM_WE_N=1'b1;
+         SRAM_WE_N=1'b1;
         end
         3'b101: begin 
-        assign SRAM_WE_N=1'b1;
-        assign ready=1'd1;
+            SRAM_WE_N=1'b1;
+           assign ready=1'd1;
         end
         endcase
         

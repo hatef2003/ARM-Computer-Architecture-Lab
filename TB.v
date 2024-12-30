@@ -16,14 +16,14 @@ module TB();
     	end
     end 
     assign newCLK = divider[0] & divider[1] & divider[0];
- IF_ID_EXE_MEM abbas(newCLK , rst , forward_en);
+ IF_ID_EXE_MEM abbas(clk , rst , forward_en);
 
     initial 
     begin
       rst = 1;
       #10
       rst = 0;
-      #10000
+      #100000
       $stop;
     end
 endmodule
