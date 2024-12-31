@@ -30,60 +30,58 @@ module SramController(input clk, rst, wr_en, rd_en,
         endcase
     end
 
-    always @(ps,rd_en, wr_en)
+   always @(ps, rd_en, wr_en)
+begin
+    ready = 1'b1;
+    SRAM_WE_N = 1'b1;
+    SRAM_DQ_Reg = 16'd0;
+    SRAM_ADDR = 18'd0;
+    case (ps)
+    3'b000:
+        ready = idel_ready;
+    3'b001: 
     begin
-        ready=1'b1;
-        SRAM_WE_N=1'b1;
-        SRAM_DQ_Reg=16'd0;
-        SRAM_ADDR = 18'd0;
-        case (ps)
-        3'b000:
-            assign ready =idel_ready;
-        3'b001: 
-        begin
-            assign  ready = 1'b0;
-             SRAM_WE_N=~wr_en;
-            if (wr_en==1'b1) begin
-                SRAM_ADDR = addr;
-                SRAM_DQ_Reg = writeData[15:0];
-            end
-            else begin
-                // SRAM_DQ_Reg=16'bz;
-                 SRAM_ADDR = addr;
-            end
+        ready = 1'b0;
+        SRAM_WE_N = ~wr_en;
+        if (wr_en == 1'b1) begin
+            SRAM_ADDR = addr;
+            SRAM_DQ_Reg = writeData[15:0];
+        end else begin
+            SRAM_ADDR = addr;
         end
-        3'b010:
-        begin
-             SRAM_WE_N=~wr_en;
-
-            if (wr_en==1'b1) begin
-                SRAM_ADDR = addr + 18'd1;
-                SRAM_DQ_Reg = writeData[31:16];
-                
-            end
-            else begin
-                SRAM_ADDR = addr + 18'd1;
-                readData[15:0] = SRAM_DQ;
-            end
-        end
-        3'b011:
-        begin
-             SRAM_WE_N=1'b1;
-
-            if (wr_en==1'b0) begin
-                readData[31:16] = SRAM_DQ;
-            end
-        end
-        3'b100:begin
-         SRAM_WE_N=1'b1;
-        end
-        3'b101: begin 
-            SRAM_WE_N=1'b1;
-           assign ready=1'd1;
-        end
-        endcase
-        
     end
+    3'b010:
+    begin
+        SRAM_WE_N = ~wr_en;
+        ready = 1'b0 ;
+        if (wr_en == 1'b1) begin
+            SRAM_ADDR = addr + 18'd1;
+            SRAM_DQ_Reg = writeData[31:16];
+        end else begin
+            SRAM_ADDR = addr + 18'd1;
+            readData[15:0] = SRAM_DQ;
+        end
+    end
+    3'b011:
+    begin
+        SRAM_WE_N = 1'b1;
+        ready = 1'b0;
+        if (wr_en == 1'b0) begin
+            readData[31:16] = SRAM_DQ;
+        end
+    end
+    3'b100:begin
+        SRAM_WE_N = 1'b1;
+        ready = 1'b0;
+    end
+    3'b101: 
+    begin 
+        SRAM_WE_N = 1'b1;
+        ready = 1'b1;
+    end
+    endcase
+end
+
 
     assign {SRAM_UB_N, SRAM_LB_N, SRAM_CE_N, SRAM_OE_N} = 4'd0;
 
