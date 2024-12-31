@@ -4,7 +4,9 @@ module SramController(input clk, rst, wr_en, rd_en,
                         output reg ready,
                         inout [15:0] SRAM_DQ,
                         output reg [17:0] SRAM_ADDR,
-                        output reg SRAM_UB_N, SRAM_LB_N, SRAM_WE_N, SRAM_CE_N, SRAM_OE_N);
+                        output reg SRAM_WE_N,
+                        output SRAM_UB_N, SRAM_LB_N, SRAM_CE_N, SRAM_OE_N);
+
     wire[31:0]  temp;
     wire [17:0] addr , read_addr ;
     wire idel_ready;
@@ -17,8 +19,13 @@ module SramController(input clk, rst, wr_en, rd_en,
     
     reg [2:0] ps, ns;
 
-    always @(posedge clk) ps<=ns;
-    always @(posedge rst) ps<=3'd0;
+    always @(posedge clk , posedge rst)
+    begin 
+        if (rst)
+            ps<= 3'd0;
+        else
+            ps<=ns;
+    end
     always @(ps or wr_en or rd_en) begin
         case (ps)
             3'b000: ns = (wr_en == 1'b1 || rd_en == 1'b1) ? 3'b001 : 3'b000;
