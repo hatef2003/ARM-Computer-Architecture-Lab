@@ -32,10 +32,14 @@ module DataMemory( input clk , rst , MEM_W_EN, MEM_R_EN,
                     input[31:0] ALU_Res, Val_Rm,
                     output [31:0] out,
                     output ready);
-
+    wire [63:0] sram_data_out;
     wire [17:0] SRAM_ADDR;
     wire [15:0] SRAM_DQ;
-
+    wire sram_ready , SramWriteEn, SramReadEn;
+    TwoCaseinCache cache(clk, rst, MEM_R_EN,MEM_W_EN, sram_ready,ALU_Res,Val_Rm,sram_data_out,SramWriteEn,ready , SramReadEn,out);
+    
+    
+    
     SramController sram_ctrl(clk, rst, MEM_W_EN, MEM_R_EN,
                         ALU_Res, Val_Rm,
                         out,
