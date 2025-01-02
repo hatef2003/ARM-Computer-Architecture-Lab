@@ -1,6 +1,6 @@
 module SramController(input clk, rst, wr_en, rd_en,
                         input [31:0] ALU_Res, writeData,
-                        output reg [31:0] readData,
+                        output reg [63:0] readData,
                         output reg ready,
                         inout [15:0] SRAM_DQ,
                         output reg [17:0] SRAM_ADDR,
@@ -10,7 +10,7 @@ module SramController(input clk, rst, wr_en, rd_en,
     wire[31:0]  temp;
     wire [17:0] addr , read_addr ;
     wire idel_ready;
-    assign idel_ready = ~(wr_en | rd_en);
+    assign idel_ready = (~wr_en ) & (~rd_en);
     assign temp = ALU_Res-32'd1024;
     assign addr={temp[18:2],1'b0};
     assign read_addr = {temp[18:3] ,2'b00 };
@@ -54,7 +54,8 @@ begin
             SRAM_ADDR = addr;
             SRAM_DQ_Reg = writeData[15:0];
         end else begin
-            SRAM_ADDR = addr;
+            SRAM_ADDR =read_addr;
+            readData[15:0] = SRAM_DQ;
         end
     end
     3'b010:
@@ -65,21 +66,27 @@ begin
             SRAM_ADDR = addr + 18'd1;
             SRAM_DQ_Reg = writeData[31:16];
         end else begin
-            SRAM_ADDR = addr + 18'd1;
-            readData[15:0] = SRAM_DQ;
+            SRAM_ADDR = read_addr + 18'd1;
+            readData[31:16] = SRAM_DQ;
         end
     end
     3'b011:
     begin
         SRAM_WE_N = 1'b1;
         ready = 1'b0;
-        if (wr_en == 1'b0) begin
-            readData[31:16] = SRAM_DQ;
+        if (rd_en == 1'b1) begin
+            SRAM_ADDR = read_addr + 18'd2;
+            readData[47:32] = SRAM_DQ;
         end
     end
     3'b100:begin
-        SRAM_WE_N = 1'b1;
         ready = 1'b0;
+        SRAM_WE_N = 1'b1;
+        if(rd_en)
+        begin
+          SRAM_ADDR = read_addr +18'd3;
+          readData[63:48] = SRAM_DQ
+        end
     end
     3'b101: 
     begin 
