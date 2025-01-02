@@ -44,8 +44,11 @@ begin
     SRAM_DQ_Reg = 16'd0;
     SRAM_ADDR = 18'd0;
     case (ps)
-    3'b000:
+    3'b000:begin
         ready = idel_ready;
+        SRAM_ADDR =read_addr;
+
+    end
     3'b001: 
     begin
         ready = 1'b0;
@@ -54,7 +57,7 @@ begin
             SRAM_ADDR = addr;
             SRAM_DQ_Reg = writeData[15:0];
         end else begin
-            SRAM_ADDR =read_addr;
+            SRAM_ADDR =read_addr +18'd1;
             readData[15:0] = SRAM_DQ;
         end
     end
@@ -66,7 +69,7 @@ begin
             SRAM_ADDR = addr + 18'd1;
             SRAM_DQ_Reg = writeData[31:16];
         end else begin
-            SRAM_ADDR = read_addr + 18'd1;
+            SRAM_ADDR = read_addr + 18'd2;
             readData[31:16] = SRAM_DQ;
         end
     end
@@ -75,17 +78,18 @@ begin
         SRAM_WE_N = 1'b1;
         ready = 1'b0;
         if (rd_en == 1'b1) begin
-            SRAM_ADDR = read_addr + 18'd2;
+            SRAM_ADDR = read_addr + 18'd3;
             readData[47:32] = SRAM_DQ;
         end
     end
-    3'b100:begin
+    3'b100:
+    begin
         ready = 1'b0;
         SRAM_WE_N = 1'b1;
         if(rd_en)
         begin
           SRAM_ADDR = read_addr +18'd3;
-          readData[63:48] = SRAM_DQ
+          readData[63:48] = SRAM_DQ;
         end
     end
     3'b101: 
