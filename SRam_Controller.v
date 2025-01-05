@@ -65,7 +65,7 @@ begin
             SRAM_ADDR = addr + 18'd1;
             SRAM_DQ_Reg = writeData[31:16];
         end else begin
-            SRAM_ADDR = addr + 18'd1;
+            SRAM_ADDR = addr;
             readData[15:0] = SRAM_DQ;
         end
     end
@@ -74,12 +74,17 @@ begin
         SRAM_WE_N = 1'b1;
         ready = 1'b0;
         if (wr_en == 1'b0) begin
-            readData[31:16] = SRAM_DQ;
+            SRAM_ADDR = addr + 18'd1;
+            // readData[31:16] = SRAM_DQ;
         end
     end
     3'b100:begin
         SRAM_WE_N = 1'b1;
         ready = 1'b0;
+         if (wr_en == 1'b0) begin
+            SRAM_ADDR = addr + 18'd1;
+            readData[31:16] = SRAM_DQ;
+        end
     end
     3'b101: 
     begin 

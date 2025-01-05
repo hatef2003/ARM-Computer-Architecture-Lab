@@ -1,0 +1,634 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dD:/CA-lab/ARM-Computer-Architecture-Lab/ModelSimPro
+vALU
+Z0 !s110 1736070106
+!i10b 1
+!s100 =BDji98]6FLRP]`[@440D1
+Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
+I7OKa9kiz3oMeiag9CBd>f0
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+Z3 dC:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/New folder
+Z4 w1736068563
+8C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/ALU.v
+FC:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/ALU.v
+!i122 119
+L0 1 72
+Z5 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z6 !s108 1736070106.000000
+!s107 C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/ALU.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/ALU.v|
+!i113 1
+Z7 o-work work
+Z8 tCvgOpt 0
+n@a@l@u
+vCondtionCheck
+R0
+!i10b 1
+!s100 ]gYF3a@CjlYK;N[ASf7ZU2
+R1
+IhFziH_TLme`lTFigjz<4X2
+R2
+R3
+R4
+8C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/CondtionCheck.v
+FC:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/CondtionCheck.v
+!i122 120
+L0 1 73
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/CondtionCheck.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/CondtionCheck.v|
+!i113 1
+R7
+R8
+n@condtion@check
+vControlUnit
+R0
+!i10b 1
+!s100 Rz>o;LHElW67[z`Qd5ALE0
+R1
+I[MlIZXM0RAT^Tf9_MEN3L1
+R2
+R3
+R4
+8C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/ControlUnit.v
+FC:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/ControlUnit.v
+!i122 121
+L0 3 52
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/ControlUnit.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/ControlUnit.v|
+!i113 1
+R7
+R8
+n@control@unit
+vDataMemory
+R0
+!i10b 1
+!s100 :knYeZKQi7F:bClkDja1=1
+R1
+INH>^3@5W[6jb3CFGnN6lm1
+R2
+R3
+w1736069155
+8C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/DataMemory.v
+FC:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/DataMemory.v
+!i122 122
+L0 31 24
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/DataMemory.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/DataMemory.v|
+!i113 1
+R7
+R8
+n@data@memory
+vEXE
+R0
+!i10b 1
+!s100 l4k0LT5a3cfMijHGT7W8G3
+R1
+I026CAiC[FUEff:ff?jnZ`1
+R2
+R3
+R4
+8C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/EXE.v
+FC:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/EXE.v
+!i122 123
+L0 1 36
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/EXE.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/EXE.v|
+!i113 1
+R7
+R8
+n@e@x@e
+vEXE_Reg
+R0
+!i10b 1
+!s100 =mz4iJBBeg2EGGJPn:hmG3
+R1
+I?IeU1i<@H?JfdhiBIEO:i1
+R2
+R3
+R4
+8C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/EXE_Reg.v
+FC:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/EXE_Reg.v
+!i122 124
+L0 1 19
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/EXE_Reg.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/EXE_Reg.v|
+!i113 1
+R7
+R8
+n@e@x@e_@reg
+vForwardingUnit
+R0
+!i10b 1
+!s100 B8H0m6zULF6I^zU03TAiB3
+R1
+I<KS;me_AjHB<f?Z@S0E671
+R2
+R3
+R4
+8C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/ForwardingUnit.v
+FC:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/ForwardingUnit.v
+!i122 125
+L0 1 24
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/ForwardingUnit.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/ForwardingUnit.v|
+!i113 1
+R7
+R8
+n@forwarding@unit
+vHazard
+R0
+!i10b 1
+!s100 bVjN`z:WP2N0]QlKlG3jX3
+R1
+IZ<DU_I0KMLYP6:7d^N9a71
+R2
+R3
+R4
+8C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/Hazard.v
+FC:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/Hazard.v
+!i122 126
+L0 1 34
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/Hazard.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/Hazard.v|
+!i113 1
+R7
+R8
+n@hazard
+vID
+R0
+!i10b 1
+!s100 9?n:IizFXkNTHIJ<NeZSl2
+R1
+IWOQ8B:6]FjbJhn?S=fzHE1
+R2
+R3
+R4
+8C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/ID.v
+FC:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/ID.v
+!i122 127
+L0 1 39
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/ID.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/ID.v|
+!i113 1
+R7
+R8
+n@i@d
+vID_Reg
+R0
+!i10b 1
+!s100 0TgkP>1Ue_I>gQiYK_`UC1
+R1
+IB8A6OHbE?:0[jRPn:eVkl2
+R2
+R3
+R4
+8C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/ID_Reg.v
+FC:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/ID_Reg.v
+!i122 128
+L0 1 44
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/ID_Reg.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/ID_Reg.v|
+!i113 1
+R7
+R8
+n@i@d_@reg
+vIF
+R0
+!i10b 1
+!s100 FH<A1;6MN>E:EVid;[[A=1
+R1
+I2>XDk96?_:P;f@>RU9_Ez3
+R2
+R3
+R4
+8C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/IF.v
+FC:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/IF.v
+!i122 129
+L0 1 13
+R5
+r1
+!s85 0
+31
+R6
+!s107 C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/IF.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/IF.v|
+!i113 1
+R7
+R8
+n@i@f
+vIF_ID_EXE_MEM
+Z9 !s110 1736070107
+!i10b 1
+!s100 KLJ9ZG;oP<U9C]k^9aga13
+R1
+I8o`ag93iFMITV>5_OY`6W2
+R2
+R3
+w1736069248
+8C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/IF_ID_EXE_MEM.v
+FC:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/IF_ID_EXE_MEM.v
+!i122 130
+L0 1 113
+R5
+r1
+!s85 0
+31
+Z10 !s108 1736070107.000000
+!s107 C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/IF_ID_EXE_MEM.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/IF_ID_EXE_MEM.v|
+!i113 1
+R7
+R8
+n@i@f_@i@d_@e@x@e_@m@e@m
+vIF_Reg
+R9
+!i10b 1
+!s100 k6^L>eDJGD>IBaGOW6jA30
+R1
+IDO<dE8;GB70E:z4ng5>[13
+R2
+R3
+R4
+8C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/IF_Reg.v
+FC:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/IF_Reg.v
+!i122 131
+L0 1 8
+R5
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/IF_Reg.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/IF_Reg.v|
+!i113 1
+R7
+R8
+n@i@f_@reg
+vInstructionMemory
+R9
+!i10b 1
+!s100 BmNEJUF4b<EoS=?j0HMgF3
+R1
+IM;Qhb2??YXAXikf]bl@mL2
+R2
+R3
+R4
+8C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/InstructionMemory.v
+FC:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/InstructionMemory.v
+!i122 132
+L0 1 61
+R5
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/InstructionMemory.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/InstructionMemory.v|
+!i113 1
+R7
+R8
+n@instruction@memory
+vMEM_Reg
+R9
+!i10b 1
+!s100 3Th<KeYC5Z[P^IbQ3?ePD1
+R1
+IB7blWbBhNLTc<[:;HXdI]3
+R2
+R3
+R4
+8C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/MEM_Reg.v
+FC:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/MEM_Reg.v
+!i122 133
+L0 1 18
+R5
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/MEM_Reg.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/MEM_Reg.v|
+!i113 1
+R7
+R8
+n@m@e@m_@reg
+vMux2to1
+R9
+!i10b 1
+!s100 `>C5=j4Gz2;g<lzZ6c8oK3
+R1
+IaWdoMImIL0lkVWn]dbcQK3
+R2
+R3
+R4
+Z11 8C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/Mux2to1.v
+Z12 FC:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/Mux2to1.v
+!i122 134
+L0 1 6
+R5
+r1
+!s85 0
+31
+R10
+Z13 !s107 C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/Mux2to1.v|
+Z14 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/Mux2to1.v|
+!i113 1
+R7
+R8
+n@mux2to1
+vMux3to1
+R9
+!i10b 1
+!s100 eel1>`TGBGVIi9VJUKd7b0
+R1
+I`7=PCU>YR[;2;B14R2`?l0
+R2
+R3
+R4
+R11
+R12
+!i122 134
+L0 8 5
+R5
+r1
+!s85 0
+31
+R10
+R13
+R14
+!i113 1
+R7
+R8
+n@mux3to1
+vProgramCounter
+R9
+!i10b 1
+!s100 8oUN7oQ^8OWkX?S<?YcfV0
+R1
+I<6o:FknSTk?2n>M<kVjML3
+R2
+R3
+R4
+8C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/ProgramCounter.v
+FC:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/ProgramCounter.v
+!i122 135
+L0 1 3
+R5
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/ProgramCounter.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/ProgramCounter.v|
+!i113 1
+R7
+R8
+n@program@counter
+vregister
+R9
+!i10b 1
+!s100 4m5f8;2bZ?WMFCF2F2Eb?3
+R1
+Ie9hfJ0FCZcTl?e79AkkRa0
+R2
+R3
+R4
+Z15 8C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/Register.v
+Z16 FC:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/Register.v
+!i122 136
+L0 1 16
+R5
+r1
+!s85 0
+31
+R10
+Z17 !s107 C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/Register.v|
+Z18 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/Register.v|
+!i113 1
+R7
+R8
+vRegisterFile
+R9
+!i10b 1
+!s100 ][7zd=b1]52aBRV=NR=4l2
+R1
+I`=b@PefoY4UR<?2Z87En30
+R2
+R3
+R4
+8C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/RegisterFile.v
+FC:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/RegisterFile.v
+!i122 137
+L0 1 40
+R5
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/RegisterFile.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/RegisterFile.v|
+!i113 1
+R7
+R8
+n@register@file
+vregisterWithFlush
+R9
+!i10b 1
+!s100 0Yo[zc2dRLE_X0nU8]K>;3
+R1
+Ij^<C2138W3fCJ?zfW:_6R2
+R2
+R3
+R4
+R15
+R16
+!i122 136
+L0 18 18
+R5
+r1
+!s85 0
+31
+R10
+R17
+R18
+!i113 1
+R7
+R8
+nregister@with@flush
+vSram
+R9
+!i10b 1
+!s100 J0CUKnDeMeW6V;f154F_[2
+R1
+IKmMVX3U3Pj_CN?M>ZRRAD2
+R2
+R3
+R4
+8C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/Sram.v
+FC:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/Sram.v
+!i122 138
+L0 1 11
+R5
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/Sram.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/Sram.v|
+!i113 1
+R7
+R8
+n@sram
+vSramController
+R9
+!i10b 1
+!s100 jOJQ1ToDMFFO<_2XROj8n3
+R1
+I?X4N[b];kd]RHgI5am1om0
+R2
+R3
+w1736068621
+8C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/SRam_Controller.v
+FC:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/SRam_Controller.v
+!i122 139
+L0 1 95
+R5
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/SRam_Controller.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/SRam_Controller.v|
+!i113 1
+R7
+R8
+n@sram@controller
+vStatusReg
+R9
+!i10b 1
+!s100 fZLd=>eF5PMUd?kJ4R=a:3
+R1
+IX4JnlAVhB<D:J9CJJn;301
+R2
+R3
+R4
+8C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/StatusReg.v
+FC:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/StatusReg.v
+!i122 140
+L0 2 12
+R5
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/StatusReg.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/StatusReg.v|
+!i113 1
+R7
+R8
+n@status@reg
+vTB
+R9
+!i10b 1
+!s100 cBNnTKIzUREW`nEnmk7a71
+R1
+Ik7Z>DW5]8TLeHT:kmZJ6I1
+R2
+R3
+w1736069211
+8C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/TB.v
+FC:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/TB.v
+!i122 141
+L0 1 37
+R5
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/TB.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/TB.v|
+!i113 1
+R7
+R8
+n@t@b
+vValGenerator
+!s110 1736070108
+!i10b 1
+!s100 KBRURofFb3A25Dh=FmEQF0
+R1
+I<zLbRkFC[R]bz[eM6=ZkB1
+R2
+R3
+R4
+8C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/ValGenerator.v
+FC:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/ValGenerator.v
+!i122 142
+L0 1 46
+R5
+r1
+!s85 0
+31
+!s108 1736070108.000000
+!s107 C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/ValGenerator.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/Hot-f/Desktop/CA/ARM-Computer-Architecture-Lab/ValGenerator.v|
+!i113 1
+R7
+R8
+n@val@generator

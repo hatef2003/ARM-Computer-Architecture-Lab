@@ -31,10 +31,12 @@
 module DataMemory( input clk , rst , MEM_W_EN, MEM_R_EN,
                     input[31:0] ALU_Res, Val_Rm,
                     output [31:0] out,
-                    output ready);
+                    output ready, output [15:0]SRAM_DQ, output [17:0] SRAM_ADDR,
+                    output SRAM_UB_N, SRAM_LB_N, SRAM_CE_N, SRAM_OE_N,
+                    output SRAM_WE_N);
 
-    wire [17:0] SRAM_ADDR;
-    wire [15:0] SRAM_DQ;
+    // wire [17:0] SRAM_ADDR;
+    // wire [15:0] SRAM_DQ;
 
     SramController sram_ctrl(clk, rst, MEM_W_EN, MEM_R_EN,
                         ALU_Res, Val_Rm,
@@ -46,7 +48,7 @@ module DataMemory( input clk , rst , MEM_W_EN, MEM_R_EN,
                         SRAM_UB_N, SRAM_LB_N, SRAM_CE_N, SRAM_OE_N);
 
 
-  Sram sram (clk, rst, SRAM_WE_N,
-            SRAM_ADDR,
-            SRAM_DQ);
+//   Sram sram (clk, rst, SRAM_WE_N,
+//             SRAM_ADDR,
+//             SRAM_DQ);
 endmodule

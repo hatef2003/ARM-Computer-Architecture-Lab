@@ -1,4 +1,6 @@
-module IF_ID_EXE_MEM(input clk , rst , forward_en);
+module IF_ID_EXE_MEM(input clk , rst , forward_en , output [15:0]SRAM_DQ, output [17:0] SRAM_ADDR,
+                    output SRAM_UB_N, SRAM_LB_N, SRAM_CE_N, SRAM_OE_N,
+                    output SRAM_WE_N);
 
 wire [31:0] ALURes;
 
@@ -95,7 +97,9 @@ EXE_Reg exeReg (clk ,rst, ~mem_ready,
         ALUResOut , valRmOut2 , dest);
 
 DataMemory dataMemory ( clk, rst, MEM_W_EN_OUT, MEM_R_EN_OUT, ALUResOut, valRmOut2, 
-                        memOut, mem_ready);
+                        memOut, mem_ready,SRAM_DQ, SRAM_ADDR,
+                SRAM_UB_N, SRAM_LB_N, SRAM_CE_N, SRAM_OE_N,
+                SRAM_WE_N);
 
 MEM_Reg memReg( clk, rst, ~mem_ready, WB_EN_OUT, MEM_R_EN_OUT, ALUResOut, memOut, dest,
                 WB_WB_EN, MEMReg_MEM_R_EN_OUT, MEMReg_ALUResOut, MEMReg_DataMemoryOutput32Bit_Out, WBDest);
