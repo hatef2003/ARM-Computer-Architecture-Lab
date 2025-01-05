@@ -68,7 +68,7 @@ begin
         hit_cnt <= 32'b0;
     end 
     else begin
-        if (rd_en_in) begin//5
+        if (rd_en_in) begin //5
             if (hit) begin //
                 index_lru[index] <= hit_way1;
                 hit_cnt <= hit_cnt + 1;
