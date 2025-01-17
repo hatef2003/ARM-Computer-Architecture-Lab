@@ -6,7 +6,7 @@ Report for computer architecture lab in which we developed an ARM CPU from scrat
 
 ## **Instruction Fetch (IF)**
 
-<!-- ![Instruction Fetch Diagram](image1.png)   -->
+![Instruction Fetch Diagram](images/image1.png)  
 *Fig.1: Instruction Fetch (IF) of ARM DP*
 
 ### **Overview**
@@ -24,10 +24,10 @@ register pc(clk, rst, (~freeze) | (branchTaken), PCIn, PCOut);
 
 The "load" signal logic for the PC register ensures that if a branch occurs, the branched address is loaded into the PC register.
 
-<!-- ![Simulation of IF](image2.png)   -->
+![Simulation of IF](images/image2.png)  
 *Fig.2: Simulation of IF*
 
-<!-- ![Signal Tab of IF](image3.png)   -->
+![Signal Tab of IF](images/image3.png)  
 *Fig.3: Signal Tab of IF*
 
 ### **Key Modules**
@@ -85,7 +85,7 @@ The "load" signal logic for the PC register ensures that if a branch occurs, the
 
 ## **Instruction Decode (ID)**
 
-<!-- ![Instruction Decode Diagram](image4.png)   -->
+![Instruction Decode Diagram](images/image4.png)  
 *Fig.4: Instruction Decode (ID) of ARM DP*
 
 ### **Overview**
@@ -96,10 +96,10 @@ This stage decodes the instruction fetched from the IF stage and prepares it for
 - **Control Unit**
 - **Register File**
 
-<!-- ![Simulation of ID](image5.png)   -->
+![Simulation of ID](images/image5.png)  
 *Fig.5: Simulation of ID*
 
-<!-- ![Signal Tab of ID](image6.png)   -->
+![Signal Tab of ID](images/image6.png)  
 *Fig.6: Signal Tab of ID*
 
 ### **Key Modules**
@@ -140,7 +140,7 @@ This stage decodes the instruction fetched from the IF stage and prepares it for
 
 ## **Execution (EXE)**
 
-<!-- ![Execution Diagram](image7.png)   -->
+![Execution Diagram](images/image7.png)  
 *Fig.7: Execution Stage*
 
 ### **Overview**
@@ -161,7 +161,7 @@ assign branchAddress = PC + {{6{signedIMM[23]}}, signedIMM, 2'b00};
 
 ## **Memory**
 
-<!-- ![Memory Diagram](image10.png)   -->
+![Memory Diagram](images/image10.png)  
 *Fig.10: Memory Stage*
 
 ### **Overview**
@@ -175,7 +175,7 @@ This stage handles memory read and write operations. It supports:
 
 ## **Hazard Unit**
 
-<!-- ![Hazard Diagram](image15.png)   -->
+![Hazard Diagram](images/image15.png)  
 *Fig.14: Hazard Detection*
 
 ### **Overview**
@@ -189,7 +189,7 @@ Detects and resolves Read After Write (RAW) hazards. Operates in two modes:
 
 ## **Forwarding Unit**
 
-<!-- ![Forwarding Diagram](image17.png)   -->
+![Forwarding Diagram](images/image17.png)  
 *Fig.17: Forwarding Unit*
 
 ### **Overview**
@@ -200,7 +200,7 @@ Reduces pipeline stalls by forwarding valid values to the execution stage.
 
 ## **SRAM Integration**
 
-<!-- ![SRAM Simulation](image22.png)   -->
+![SRAM Simulation](images/image22.png)  
 *Fig.21: SRAM Simulation*
 
 ### **Overview**
@@ -211,7 +211,7 @@ Handles realistic memory access with Altera Cyclone-II SRAM chips.
 
 ## **Cache Integration**
 
-<!-- ![Cache Simulation](image25.png)   -->
+![Cache Simulation](images/image25.png)  
 *Fig.24: Cache Simulation*
 
 ### **Overview**
